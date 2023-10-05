@@ -1,42 +1,29 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Sections */
+
+.side-section {
+  background-color: #053b50;
+  height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nopadding {
+  padding: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header {
+  height: 11vh;
+  background-color: #053b50;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.group-list {
+  height: 17vh;
 }
 
-.card {
-  padding: 2em;
+.schedule-list {
+  background-color: #061b23;
+  height: 100vh;;
 }
 
-.read-the-docs {
-  color: #888;
+.group-chat {
+  background-color: #053b50;
+  height: 100vh;
 }
