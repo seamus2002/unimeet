@@ -1,6 +1,8 @@
 # HOW TO RUN
 
-After you cd into the correct folder, instead of running " npm install " make sure you run " npm install react-router-dom "
+After you cd into the correct folder,
+
+instead of running " npm install " make sure you run " npm install react-router-dom "
 
 from there, you can just do " npm run dev "
 
