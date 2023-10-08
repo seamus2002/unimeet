@@ -1,8 +1,4 @@
 /* Sections */
-body{
-  padding-left: 12px;
-}
-
 .bottomLeft-Section{
   display: flex;
   flex-direction: row;
