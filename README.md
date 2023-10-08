@@ -12,7 +12,8 @@ from there, you can just do " npm run dev "
 
 
 
-
+------------------------------------------------------------------------------------------------
+PREVIOUS readme below:
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
