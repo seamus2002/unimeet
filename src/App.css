@@ -40,3 +40,21 @@ body{
   height: 72vh;
   width: 50%;
 }
+
+.nametag {
+  background-color: #9BA3E8;
+  color: #000;
+  border-radius: 20px;
+  max-width: 120px;
+  max-height: 33px;
+}
+
+.user-icon {
+  max-width: 120px;
+}
+
+.user-icon-img {
+  border-radius: 50%;
+  max-width: 90px;
+  max-height: 90px;
+}
