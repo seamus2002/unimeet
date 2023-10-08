@@ -9,10 +9,8 @@ const MainSection = () => {
         <Header />
         <GroupList />
         <div>
-            <div>
+            <div className="bottomLeft-Section">
                 <ScheduleList />
-            </div>
-            <div>
                 <GroupChat />
             </div>
         </div>

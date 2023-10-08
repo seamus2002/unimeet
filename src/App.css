@@ -2,6 +2,12 @@
 body{
   padding-left: 12px;
 }
+.bottomLeft-Section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 /* Set a media query to fix the scrolling to the right issue */
 .side-section {
   background-color: #053b50;
@@ -24,9 +30,11 @@ body{
 .schedule-list {
   background-color: #061b23;
   height: 72vh;
+  width: 50%;
 }
 
 .group-chat {
   background-color: #053b50;
   height: 72vh;
+  width: 50%;
 }
