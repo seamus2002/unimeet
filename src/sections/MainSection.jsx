@@ -8,11 +8,11 @@ const MainSection = () => {
     <div className="main-section">
         <Header />
         <GroupList />
-        <div className="row">
-            <div className="col-lg-6 nopadding">
+        <div>
+            <div>
                 <ScheduleList />
             </div>
-            <div className="col-lg-6 nopadding">
+            <div>
                 <GroupChat />
             </div>
         </div>

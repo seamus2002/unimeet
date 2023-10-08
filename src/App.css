@@ -1,5 +1,8 @@
 /* Sections */
-
+body{
+  padding-left: 12px;
+}
+/* Set a media query to fix the scrolling to the right issue */
 .side-section {
   background-color: #053b50;
   height: 100vh;
