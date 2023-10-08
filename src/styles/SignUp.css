@@ -1,0 +1,61 @@
+/* Set the text color to black for all elements */
+.user-signup-screen {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100vh;
+    text-align: left;
+  }
+  
+  .user-signup-screen div.side-display {
+    padding: 20px 0px 20px 20px;
+    background-color: #f1f1f1;
+    color: black; /* Set text color to black */
+  }
+  
+  .user-signup-screen div.side-display label {
+    font-size: 33px;
+    color: black; /* Set text color to black */
+  }
+  
+  .user-signup-screen div.side-display h3 {
+    margin: 10px 0px;
+    color: black; /* Set text color to black */
+  }
+  
+  .user-signup-screen div.side-display h3 a {
+    color: #0660ed; /* Link color */
+    text-decoration: none;
+  }
+  
+  .user-signup-screen div.side-display h3 a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .user-signup-screen div.side-display form {
+    margin-top: 20px;
+  }
+  
+  .user-signup-screen div.side-display form input {
+    width: calc(100% - 20px);
+    font-size: 20px;
+    padding: 5px;
+    color: black; /* Set input text color to black */
+  }
+  
+  .user-signup-screen div.side-display form span {
+    margin-top: 10px;
+    font-size: 20px;
+    display: block;
+    color: black; /* Set text color to black */
+  }
+  
+  .user-signup-screen div.side-display form button {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+  
+  .user-signup-screen div.main-display {
+    background: linear-gradient(to bottom, #05a4c0,#025db8, #042568);
+    color: white; /* Set text color to white */
+  }
+  
