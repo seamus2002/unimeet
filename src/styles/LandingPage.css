@@ -1,0 +1,18 @@
+/* Add styling for the button */
+.buttons {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: blue; /* Change the color to blue */
+    color: white; /* Text color */
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  /* Style the button on hover */
+  .buttons:hover {
+    background-color: darkblue; /* Darker blue on hover */
+  }
+  

@@ -1,4 +1,19 @@
-# React + Vite
+# HOW TO RUN
+
+After you cd into the correct folder,
+
+instead of running " npm install " make sure you run " npm install react-router-dom "
+
+from there, you can just do " npm run dev "
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+PREVIOUS readme below:
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
