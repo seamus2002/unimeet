@@ -8,7 +8,12 @@
 .nopadding {
   padding: 0;
 }
-
+.bottomLeft-section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 .header {
   height: 11vh;
   background-color: #053b50;
@@ -21,11 +26,13 @@
 .schedule-list {
   background-color: #061b23;
   height: 72vh;
+  width: 50%;
 }
 
 .group-chat {
   background-color: #053b50;
   height: 72vh;
+  width: 50%;
 }
 
 .nametag {
