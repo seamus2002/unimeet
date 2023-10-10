@@ -37,7 +37,7 @@ const SignUp = () => {
       <div className="side-display">
         
         <label><strong>Create your account</strong></label>
-        <h3>Already have an account? <Link to="/LoginPage">Log in</Link></h3>
+        <h3>Already have an account? <Link to="/login">Log in</Link></h3>
         <form onSubmit={handleSubmit}>
           <h3 className='first-name'>First Name</h3>
           <input type="text" onChange={(e) => { setFirstName(e.target.value) }}
