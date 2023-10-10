@@ -28,13 +28,13 @@
 .schedule-list {
   background-color: #061b23;
   height: 72vh;
-  width: 50%;
+  width: 100%;
 }
 
 .group-chat {
   background-color: #053b50;
   height: 72vh;
-  width: 50%;
+  width: 100%;
 }
 
 .nametag {
