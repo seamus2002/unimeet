@@ -6,15 +6,15 @@ const Landing = () => {
   return (
     <div>
       <h1>THIS IS THE LANDING PAGE</h1>
-      <Link to="/important" className="buttons">
+      <Link to="/home" className="buttons">
         Continue to Site (Temporary)
       </Link>
       <br /> {/* Add a line break */}
-      <Link to="/LoginPage" className="buttons">
+      <Link to="/login" className="buttons">
         LOGIN
       </Link>
       <br /> {/* Add a line break */}
-      <Link to="/SignUp" className="buttons">
+      <Link to="/sign-up" className="buttons">
         SIGN UP
       </Link>
     </div>

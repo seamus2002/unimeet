@@ -2,10 +2,9 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
-import MainSection from "./sections/MainSection";
-import SideSection from "./sections/SideSection";
 import SignUp from "./Pages/SignUp";
 import LoginPage from "./Pages/LoginPage";
+import HomePage from "./Pages/HomePage";
 
 function App() {
   return (
@@ -15,10 +14,9 @@ function App() {
         <Route path="/" element={<LandingPage />} />
 
         {/* Other routes */}
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/important" element={<MainSection />} />
-        <Route path="/side" element={<SideSection />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </Router>
   );
