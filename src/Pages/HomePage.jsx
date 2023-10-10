@@ -1,7 +1,7 @@
 import MainSection from "../sections/MainSection"
 import SideSection from "../sections/SideSection"
 
-const MainPage = () => {
+const HomePage = () => {
   return (
     <div className="row">
       <div className="col-lg-8 nopadding">
@@ -14,4 +14,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default HomePage
