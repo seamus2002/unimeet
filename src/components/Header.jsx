@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import the Link component from react-router-dom
+
 const Header = () => {
   return (
     <div className="main-header d-flex align-items-center justify-content-cente">
@@ -23,7 +26,10 @@ const Header = () => {
           </div>
 
           <div className="col-sm-1">
-            <i className="bi bi-calendar"></i>
+            {/* CALENDAR BUTTON */}
+            <Link to="/CalendarPage">
+              <i className="bi bi-calendar"></i>
+            </Link>
           </div>
         </div>
       </div>
@@ -31,4 +37,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
