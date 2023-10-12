@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import the Link component from react-router-dom
-
 const Header = () => {
+
+  const date = new Date();
+
   return (
     <div className="main-header d-flex align-items-center justify-content-cente">
       <div className="container">
@@ -17,7 +17,7 @@ const Header = () => {
                 <i class="bi bi-caret-left-fill"></i>
               </div>
               <div className="col-sm-10">
-                Date
+                {date.toLocaleDateString()}
               </div>
               <div className="col-sm-1">
                 <i class="bi bi-caret-right-fill"></i>
@@ -26,10 +26,7 @@ const Header = () => {
           </div>
 
           <div className="col-sm-1">
-            {/* CALENDAR BUTTON */}
-            <Link to="/CalendarPage">
-              <i className="bi bi-calendar"></i>
-            </Link>
+            <i className="bi bi-calendar"></i>
           </div>
         </div>
       </div>
@@ -37,4 +34,4 @@ const Header = () => {
   )
 }
 
-export default Header;
+export default Header
