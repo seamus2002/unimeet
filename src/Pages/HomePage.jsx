@@ -3,7 +3,7 @@ import SideSection from "../sections/SideSection"
 
 const HomePage = () => {
   return (
-    <div className="row">
+    <div className="row" style={{margin: "auto"}}>
       <div className="col-lg-8 nopadding">
         <MainSection />
       </div>
