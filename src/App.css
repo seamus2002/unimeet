@@ -18,6 +18,7 @@
 .header {
   height: 11vh;
   background-color: #053b50;
+  font-size: 32px;
 }
 
 .group-list {
@@ -60,5 +61,10 @@
   border-radius: 50%;
   max-width: 90px;
   max-height: 90px;
+}
 
+.date-panel {
+  background-color: #176B87;
+  border: 1px solid white;
+  border-radius: 20px;
 }
