@@ -6,7 +6,7 @@ const Header = () => {
   const date = new Date();
 
   return (
-    <div className="main-header d-flex align-items-center justify-content-cente">
+    <div className="main-header d-flex align-items-center justify-content-center">
       <div className="container">
         <div className="row">
           <div className="col-sm-1">
