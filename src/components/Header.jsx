@@ -8,7 +8,7 @@ const Header = () => {
           </div>
 
           {/* Date Panel */}
-          <div className="col-sm-10">
+          <div className="col-sm-10 date-panel">
             <div className="row">
               <div className="col-sm-1">
                 <i class="bi bi-caret-left-fill"></i>
@@ -21,7 +21,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="col-sm-1">
             <i className="bi bi-calendar"></i>
           </div>
