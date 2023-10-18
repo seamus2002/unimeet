@@ -4,6 +4,7 @@ import {
   createUserDocumentFromAuth,
 } from "../utils/firebase/firebase.utils";
 import FormInput from "./FormInput";
+import "./styles/SignUpForm.css";
 
 const defaultFormFields = {
   displayName: "",
@@ -11,7 +12,6 @@ const defaultFormFields = {
   password: "",
   confirmPassword: "",
 };
-import "./styles/SignUpForm.css";
 
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);

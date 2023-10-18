@@ -1,8 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import the Link component from react-router-dom
+import { Link } from "react-router-dom";
+import { signOutUser } from "../utils/firebase/firebase.utils";
 
 const Header = () => {
-
   const date = new Date();
 
   return (
@@ -10,7 +9,7 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-1">
-            <i class="bi bi-three-dots-vertical"></i>
+            <i className="bi bi-three-dots-vertical" onClick={signOutUser}></i>
           </div>
 
           {/* Date Panel */}
@@ -19,11 +18,9 @@ const Header = () => {
               <div className="col-sm-1">
                 <i class="bi bi-caret-left-fill"></i>
               </div>
-              <div className="col-sm-10">
-                {date.toLocaleDateString()}
-              </div>
+              <div className="col-sm-10">{date.toLocaleDateString()}</div>
               <div className="col-sm-1">
-                <i class="bi bi-caret-right-fill"></i>
+                <i className="bi bi-caret-right-fill"></i>
               </div>
             </div>
           </div>
@@ -37,7 +34,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Header;
