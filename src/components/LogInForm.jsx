@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 import {
   signInWithGooglePopup,
   createUserDocumentFromAuth,
@@ -17,6 +18,8 @@ const LogInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  const { setCurrentUser } = useContext(UserContext);
+
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
@@ -30,8 +33,9 @@ const LogInForm = () => {
     e.preventDefault();
 
     try {
-      const response = await logInAuthUserWithEmailAndPassword(email, password);
+      const { user } = await logInAuthUserWithEmailAndPassword(email, password);
       console.log(response);
+      setCurrentUser(user);
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
