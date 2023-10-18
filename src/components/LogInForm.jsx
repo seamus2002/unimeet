@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   logInAuthUserWithEmailAndPassword,
 } from "../utils/firebase/firebase.utils";
 import FormInput from "./FormInput";
@@ -16,6 +16,7 @@ import "./styles/LogInForm.css";
 const LogInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+  const navigate = useNavigate();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -23,15 +24,16 @@ const LogInForm = () => {
 
   const signInWithGoogle = async () => {
     await signInWithGooglePopup();
+    navigate("/");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const { user } = await logInAuthUserWithEmailAndPassword(email, password);
-      console.log(response);
+      await logInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate("/");
     } catch (error) {
       if (error.code === "auth/invalid-login-credentials") {
         alert("Invalid credentials.");
