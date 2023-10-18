@@ -25,9 +25,6 @@ const Landing = () => {
       />
 
       <section className="cta-section">
-        <Link to="/home" className="cta-button primary">
-          Explore UNIMEET
-        </Link>
         <Link to="/auth" className="cta-button secondary">
           Log in
         </Link>
