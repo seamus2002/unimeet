@@ -31,4 +31,14 @@
   z-index: 1000;
 }
 
+/* Define styles for the entire CalendarPage component */
+.calendar-page {
+  background-color: #190be1; /* Set the desired background color */
+  padding: 20px;
+  /* Add more styles as needed */
+}
+
+/* CalendarPage.css */
+
+
 

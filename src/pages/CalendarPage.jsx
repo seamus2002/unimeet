@@ -83,7 +83,7 @@ function CalendarPage() {
   }
 
   return (
-    <div>
+    <div className="calendar-page"> {/* Added className here */}
       <div className="home-button-container">
         <Link exact to="/" className="home-button">
           Home
@@ -115,6 +115,7 @@ function CalendarPage() {
       )}
       <button onClick={() => handleCreateEventClick(selectedDate)}>Create Event</button>
       <DndProvider backend={HTML5Backend}>
+        
         <Calendar
           localizer={localizer}
           events={events}
@@ -129,8 +130,8 @@ function CalendarPage() {
       {selectedEvent && (
         <div className="event-cancel-modal">
           <p>Are you sure you want to cancel this event?</p>
-          <button onClick={() => handleDeleteEvent(selectedEvent.id)}>Cancel</button>
-          <button onClick={() => setSelectedEvent(null)}>Close</button>
+          <button onClick={() => handleDeleteEvent(selectedEvent.id)}>Cancel Event</button>
+          <button onClick={() => setSelectedEvent(null)}>Go Back</button>
         </div>
       )}
     </div>
