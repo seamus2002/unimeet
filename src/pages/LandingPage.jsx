@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import "../styles/LandingPage.css";
+import "./styles/LandingPage.css";
 
 const Landing = () => {
   return (

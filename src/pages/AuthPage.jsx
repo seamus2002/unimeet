@@ -1,6 +1,6 @@
 import SignUpForm from "../components/SignUpForm";
 import LogInForm from "../components/LogInForm";
-import "./../styles/AuthPage.css";
+import "./styles/AuthPage.css";
 
 const AuthPage = () => {
   return (
