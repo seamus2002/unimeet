@@ -85,7 +85,7 @@ function CalendarPage() {
   return (
     <div>
       <div className="home-button-container">
-        <Link to="/home" className="home-button">
+        <Link exact to="/" className="home-button">
           Home
         </Link>
       </div>
