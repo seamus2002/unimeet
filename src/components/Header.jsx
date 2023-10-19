@@ -16,7 +16,7 @@ const Header = () => {
           <div className="col-sm-10 date-panel">
             <div className="row">
               <div className="col-sm-1">
-                <i class="bi bi-caret-left-fill"></i>
+                <i className="bi bi-caret-left-fill"></i>
               </div>
               <div className="col-sm-10">{date.toLocaleDateString()}</div>
               <div className="col-sm-1">
