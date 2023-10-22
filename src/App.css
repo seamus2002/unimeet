@@ -1,5 +1,5 @@
 /* Sections */
-.bottomLeft-Section{
+.bottomLeft-Section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,7 +7,7 @@
 /* Set a media query to fix the scrolling to the right issue */
 .side-section {
   border-left: 1px solid white;
-  background-color: #053b50;
+  background-color: #f2f3f5;
   height: 100vh;
 }
 
@@ -17,28 +17,29 @@
 
 .main-header {
   height: 11vh;
-  background-color: #053B50;
+  background-color: white;
   font-size: 32px;
 }
 
 .group-list {
   height: 17vh;
+  background-color: #f2f3f5;
 }
 
 .schedule-list {
-  background-color: #061b23;
+  background-color: #e3e5e8;
   height: 72vh;
   width: 100%;
 }
 
 .group-chat {
-  background-color: #053b50;
+  background-color: white;
   height: 72vh;
   width: 100%;
 }
 
 .nametag {
-  background-color: #9BA3E8;
+  background-color: #9ba3e8;
   color: #000;
   border-radius: 20px;
   max-width: 120px;
@@ -46,7 +47,7 @@
   margin-top: -10px;
   padding: 4px;
   z-index: 100;
-  left: 2px; 
+  left: 2px;
   right: 2px;
   top: 73px;
   position: absolute;
@@ -64,7 +65,7 @@
 }
 
 .date-panel {
-  background-color: #176B87;
+  background-color: #e3e5e8;
   border: 1px solid white;
   border-radius: 20px;
 }
