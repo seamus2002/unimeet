@@ -53,7 +53,10 @@ const GroupList = () => {
         photoURL={currentUser.photoURL}
         displayName={currentUser.displayName}
       />
-      <pre>{JSON.stringify(memberInfo, null, 2)}</pre>
+      <UserIcon
+        photoURL={memberInfo["photoURL"]}
+        displayName={memberInfo["displayName"]}
+      />
     </div>
   );
 };
