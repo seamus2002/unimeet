@@ -99,6 +99,7 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
+// Function to get the user's groups
 export const getUserGroups = async (uid) => {
   const userDocRef = doc(db, "users", uid);
   const docSnap = await getDoc(userDocRef);
@@ -106,6 +107,20 @@ export const getUserGroups = async (uid) => {
   if (docSnap.exists()) {
     //console.log(docSnap.data().groups);
     return docSnap.data().groups;
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
+};
+
+// Function to get the group members' uids
+export const getGroupMemberIds = async (groupId) => {
+  const userDocRef = doc(db, "groups", groupId);
+  const docSnap = await getDoc(userDocRef);
+
+  if (docSnap.exists()) {
+    //console.log(docSnap.data().members);
+    return docSnap.data().members;
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!");
