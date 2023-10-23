@@ -99,7 +99,6 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
-// Function to get the user's groups
 export const getUserGroups = async (uid) => {
   const userDocRef = doc(db, "users", uid);
   const docSnap = await getDoc(userDocRef);
@@ -113,8 +112,7 @@ export const getUserGroups = async (uid) => {
   }
 };
 
-// Function to get the group members' uids
-export const getGroupMemberIds = async (groupId) => {
+export const getGroupMembers = async (groupId) => {
   const userDocRef = doc(db, "groups", groupId);
   const docSnap = await getDoc(userDocRef);
 

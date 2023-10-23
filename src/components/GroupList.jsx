@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import UserIcon from "./UserIcon";
 import { UserContext } from "../contexts/UserContext";
 import {
-  getGroupMemberIds,
+  getGroupMembers,
   getUserGroups,
 } from "../utils/firebase/firebase.utils";
 
@@ -16,7 +16,7 @@ const GroupList = () => {
 
       if (groups && groups.length > 0) {
         setCurrentGroup(groups[0]);
-        const groupMembers = await getGroupMemberIds(currentGroup);
+        const groupMembers = await getGroupMembers(currentGroup);
         if (groupMembers && groupMembers.length > 0) {
           setMembers(groupMembers);
         }
@@ -29,7 +29,7 @@ const GroupList = () => {
   return (
     <div className="group-list d-flex align-items-center justify-content-center">
       <UserIcon />
-      <p>Members: {typeof members[0]}</p>
+      <p>Members: {typeof members}</p>
     </div>
   );
 };
