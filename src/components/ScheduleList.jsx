@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const ScheduleList = () => {
   return (
-    <div className='schedule-list'>ScheduleList</div>
-  )
-}
+    <div className="schedule-list">
+      <div className="bottom">
+        <button className="btn btn-success">Add Event</button>
+        <button className="btn btn-danger">Delete Event</button>
+      </div>
+    </div>
+  );
+};
 
-export default ScheduleList
+export default ScheduleList;
