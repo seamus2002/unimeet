@@ -9,7 +9,7 @@ import {
 
 const GroupList = () => {
   const [currentGroup, setCurrentGroup] = useState(null);
-  const [members, setMembers] = useState(null);
+  const [members, setMembers] = useState([]);
   const [memberInfo, setMemberInfo] = useState(null);
   const [memberInfoFetched, setMemberInfoFetched] = useState(false);
   const { currentUser } = useContext(UserContext);
@@ -22,17 +22,21 @@ const GroupList = () => {
     };
 
     const fetchGroupMembers = async () => {
-      const groupMembers = await getGroupMembers(currentGroup);
-      if (groupMembers && groupMembers.length > 0) {
-        setMembers(groupMembers);
+      if (currentGroup) {
+        const groupMembers = await getGroupMembers(currentGroup);
+        if (groupMembers && groupMembers.length > 0) {
+          setMembers(groupMembers);
+        }
       }
     };
 
     const fetchGroupMemberInfo = async () => {
-      const groupMemberInfo = await getGroupMemberInfo(members[0]);
-      if (groupMemberInfo) {
-        setMemberInfo(groupMemberInfo);
-        setMemberInfoFetched(true);
+      if (members.length > 0) {
+        const groupMemberInfo = await getGroupMemberInfo(members[0]);
+        if (groupMemberInfo) {
+          setMemberInfo(groupMemberInfo);
+          setMemberInfoFetched(true);
+        }
       }
     };
 
