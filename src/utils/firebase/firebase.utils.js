@@ -124,3 +124,16 @@ export const getGroupMembers = async (groupId) => {
     console.log("No such document!");
   }
 };
+
+export const getGroupMemberInfo = async (uid) => {
+  const userDocRef = doc(db, "users", uid);
+  const docSnap = await getDoc(userDocRef);
+
+  if (docSnap.exists()) {
+    //console.log(docSnap.data().members);
+    return docSnap.data();
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
+};
