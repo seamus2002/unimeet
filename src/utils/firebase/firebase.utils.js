@@ -98,3 +98,16 @@ export const signOutUser = async () => await signOut(auth);
 // Function to listen for changes in the user's authentication state
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getUserGroups = async (uid) => {
+  const userDocRef = doc(db, "users", uid);
+  const docSnap = await getDoc(userDocRef);
+
+  if (docSnap.exists()) {
+    //console.log(docSnap.data().groups);
+    return docSnap.data().groups;
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log("No such document!");
+  }
+};
