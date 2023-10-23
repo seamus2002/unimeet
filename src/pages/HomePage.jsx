@@ -1,9 +1,9 @@
-import MainSection from "../sections/MainSection"
-import SideSection from "../sections/SideSection"
+import MainSection from "../sections/MainSection";
+import SideSection from "../sections/SideSection";
 
 const HomePage = () => {
   return (
-    <div className="row" style={{margin: "auto"}}>
+    <div className="row" style={{ margin: "auto" }}>
       <div className="col-lg-8 nopadding">
         <MainSection />
       </div>
@@ -11,7 +11,7 @@ const HomePage = () => {
         <SideSection />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
