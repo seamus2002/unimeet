@@ -1,10 +1,18 @@
-import React from 'react'
-import "./styles/GroupChat.css"
+import "./styles/GroupChat.css";
 
 const GroupChat = () => {
   return (
-    <div className='group-chat'>GroupChat</div>
-  )
-}
+    <div className="group-chat">
+      <form className="bottom">
+        <input
+          type="text"
+          id="GroupChatInput"
+          className=""
+          placeholder="Send Message"
+        />
+      </form>
+    </div>
+  );
+};
 
-export default GroupChat
+export default GroupChat;
