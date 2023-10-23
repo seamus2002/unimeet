@@ -1,17 +1,10 @@
 import Nametag from "./Nametag";
-import { UserContext } from "../contexts/UserContext";
-import { useContext } from "react";
 
-const UserIcon = () => {
-  const { currentUser } = useContext(UserContext);
+const UserIcon = ({ photoURL, displayName }) => {
   return (
     <div className="user-icon">
-      <img
-        className="user-icon-img"
-        src={currentUser.photoURL}
-        alt="user-icon"
-      />
-      <Nametag />
+      <img className="user-icon-img" src={photoURL} alt="user-icon" />
+      <Nametag displayName={displayName} />
     </div>
   );
 };

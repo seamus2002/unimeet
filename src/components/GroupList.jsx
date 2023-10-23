@@ -49,7 +49,10 @@ const GroupList = () => {
 
   return (
     <div className="group-list d-flex align-items-center justify-content-center">
-      <UserIcon />
+      <UserIcon
+        photoURL={currentUser.photoURL}
+        displayName={currentUser.displayName}
+      />
       <pre>{JSON.stringify(memberInfo, null, 2)}</pre>
     </div>
   );
