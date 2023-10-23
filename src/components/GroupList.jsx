@@ -10,9 +10,10 @@ import {
 const GroupList = () => {
   const [currentGroup, setCurrentGroup] = useState(null);
   const [members, setMembers] = useState([]);
-  const [memberInfo, setMemberInfo] = useState(null);
+  const [memberInfo, setMemberInfo] = useState([]);
   const [memberInfoFetched, setMemberInfoFetched] = useState(false);
   const { currentUser } = useContext(UserContext);
+
   useEffect(() => {
     const fetchGroupData = async () => {
       const groups = await getUserGroups(currentUser.uid);
@@ -32,11 +33,18 @@ const GroupList = () => {
 
     const fetchGroupMemberInfo = async () => {
       if (members.length > 0) {
-        const groupMemberInfo = await getGroupMemberInfo(members[0]);
-        if (groupMemberInfo) {
-          setMemberInfo(groupMemberInfo);
-          setMemberInfoFetched(true);
-        }
+        const memberInfoPromises = members.map((member) =>
+          getGroupMemberInfo(member)
+        );
+        const memberInfoArray = await Promise.all(memberInfoPromises);
+
+        // Exclude the current user from the memberInfoArray
+        const filteredMemberInfoArray = memberInfoArray.filter(
+          (info) => info.email !== currentUser.email
+        );
+
+        setMemberInfo(filteredMemberInfoArray);
+        setMemberInfoFetched(true);
       }
     };
 
@@ -53,10 +61,13 @@ const GroupList = () => {
         photoURL={currentUser.photoURL}
         displayName={currentUser.displayName}
       />
-      <UserIcon
-        photoURL={memberInfo["photoURL"]}
-        displayName={memberInfo["displayName"]}
-      />
+      {memberInfo.map((info, index) => (
+        <UserIcon
+          key={index}
+          photoURL={info.photoURL}
+          displayName={info.displayName}
+        />
+      ))}
     </div>
   );
 };
