@@ -12,3 +12,9 @@ h2 {
   display: flex;
   justify-content: space-between;
 }
+
+.sign-up-text{
+  padding-right: 24px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}

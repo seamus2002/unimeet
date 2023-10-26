@@ -58,8 +58,12 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Sign up</h2>
-      <hr class="squiggly-line"></hr>
+      <h2 className="sign-up-text">Sign up</h2>
+      <div class="squiggly-line">
+          <svg width="200" height="10" xmlns="http://www.w3.org/2000/svg">
+             <path d="M0,5 Q20,0 40,5 Q60,10 80,5 Q100,0 120,5 Q140,10 160,5 Q180,0 200,5" fill="none" stroke="black" stroke-width="2" />
+          </svg>
+      </div>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Name"

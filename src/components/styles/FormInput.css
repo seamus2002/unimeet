@@ -46,4 +46,13 @@
 
 .login-text{
   padding-right: 20px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.squiggly-line {
+  width: 200px;
+  margin-left: 74px;
+  display: flex;
+  justify-content: center;
 }
