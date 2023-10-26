@@ -6,6 +6,7 @@ import {
   getGroupMembers,
   getUserGroups,
 } from "../utils/firebase/firebase.utils";
+import test_user from "../assets/testuser.jpeg";
 
 const GroupList = () => {
   const [currentGroup, setCurrentGroup] = useState(null);
@@ -64,7 +65,7 @@ const GroupList = () => {
       {memberInfo.map((info, index) => (
         <UserIcon
           key={index}
-          photoURL={info.photoURL}
+          photoURL={info.photoURL ? info.photoURL : test_user}
           displayName={info.displayName}
         />
       ))}
