@@ -59,6 +59,7 @@ const SignUpForm = () => {
   return (
     <div className="sign-up-container">
       <h2>Sign up</h2>
+      <hr class="squiggly-line"></hr>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Name"

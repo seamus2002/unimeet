@@ -49,7 +49,8 @@ const LogInForm = () => {
 
   return (
     <div className="log-in-container">
-      <h2>Log In</h2>
+      <h2 className="login-text">Log In</h2>
+      <hr class="squiggly-line"></hr>
       <form onSubmit={handleSubmit}>
         <FormInput
           label="Email"
