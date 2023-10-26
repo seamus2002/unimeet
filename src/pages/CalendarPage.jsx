@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles/CalendarPage.css';
+import './styles/CalendarPage.css'; // Import your custom CSS file
 import { Calendar, momentLocalizer } from 'react-big-calendar';
-import 'react-big-calendar/lib/css/react-big-calendar.css'; // Import CSS for styling
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 import moment from 'moment';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const localizer = momentLocalizer(moment);
 
-// Define an initial list of events
 const initialEvents = [
   {
     id: 1,
@@ -30,7 +29,7 @@ function CalendarPage() {
   const [events, setEvents] = useState(initialEvents);
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedEvent, setSelectedEvent] = useState(null); // State to track selected event for cancellation
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [newEvent, setNewEvent] = useState({
     title: '',
     start: null,
@@ -53,10 +52,9 @@ function CalendarPage() {
   const handleDeleteEvent = (eventId) => {
     const updatedEvents = events.filter((event) => event.id !== eventId);
     setEvents(updatedEvents);
-    setSelectedEvent(null); // Deselect the event after deletion
+    setSelectedEvent(null);
   };
 
-  // Define a custom event component with class names and drag-and-drop behavior
   function CustomEvent({ event, children }) {
     const [, ref] = useDrag({
       type: 'EVENT',
@@ -83,9 +81,9 @@ function CalendarPage() {
   }
 
   return (
-    <div className="calendar-page"> {/* Added className here */}
+    <div className="calendar-page">
       <div className="home-button-container">
-        <Link exact to="/" className="home-button">
+        <Link to="/" className="home-button">
           Home
         </Link>
       </div>
@@ -115,7 +113,6 @@ function CalendarPage() {
       )}
       <button onClick={() => handleCreateEventClick(selectedDate)}>Create Event</button>
       <DndProvider backend={HTML5Backend}>
-        
         <Calendar
           localizer={localizer}
           events={events}
@@ -125,6 +122,7 @@ function CalendarPage() {
           components={{
             eventWrapper: CustomEvent,
           }}
+          className="custom-calendar"
         />
       </DndProvider>
       {selectedEvent && (
