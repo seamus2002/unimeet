@@ -4,9 +4,11 @@ import "./styles/AuthPage.css";
 
 const AuthPage = () => {
   return (
-    <div className="auth-container">
-      <LogInForm />
-      <SignUpForm />
+    <div className="page-container">
+      <div className="auth-container">
+        <LogInForm />
+        <SignUpForm />
+      </div>
     </div>
   );
 };
