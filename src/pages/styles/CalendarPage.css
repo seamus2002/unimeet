@@ -8,9 +8,12 @@
   color: #fff;
   cursor: pointer;
   transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
-  background-color: #27ae60; /* Set the background color for the primary button */
+  background-color: #007bff; /* Set the background color for the primary button */
+  transition: background-color 0.3s, transform 0.3s;
 }
-
+.home-button:hover {
+  background-color: #12e33f; /* Darker blue color on hover */
+}
 /* Add these styles to your CSS file */
 .home-button-container {
   display: flex; /* Enable Flexbox layout */
