@@ -1,15 +1,11 @@
 .auth-container {
-  
   display: flex;
   width: 900px;
   justify-content: space-between;
   margin: 30px auto;
-  
 }
 
-/* AuthPage.css */
 .page-container {
-  background-image: url('https://c.tenor.com/BHQT1UqCtDoAAAAd/beach-relaxing.gif'); /* URL to your GIF */
   background-size: cover; /* Cover the entire container */
   background-repeat: no-repeat;
   background-attachment: fixed;
