@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './styles/CalendarPage.css'; // Import your custom CSS file
 import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -38,7 +38,9 @@ function CalendarPage() {
 
   const handleCreateEventClick = (date) => {
     setSelectedDate(date);
-    setShowEventForm(true);
+
+    // Toggle showEventForm to open/close the event form
+    setShowEventForm(!showEventForm);
   };
 
   const handleCreateEvent = () => {
@@ -111,7 +113,10 @@ function CalendarPage() {
           <button onClick={handleCreateEvent}>Save Event</button>
         </div>
       )}
-      <button onClick={() => handleCreateEventClick(selectedDate)}>Create Event</button>
+      <button onClick={() => handleCreateEventClick(selectedDate)} className="calendar-button">
+        <i className="fa fa-calendar"></i> {/* Assuming you are using Font Awesome for the calendar icon */}
+        <span>Create Event</span>
+      </button>
       <DndProvider backend={HTML5Backend}>
         <Calendar
           localizer={localizer}

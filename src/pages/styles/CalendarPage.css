@@ -24,7 +24,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(12, 168, 165);
+  background-color: rgb(21, 178, 206);
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -38,10 +38,6 @@
   /* Add more styles as needed */
 }
 
-/* CalendarPage.css */
-
-
-/* CalendarPage.css */
 
 /* Calendar Container */
 .calendar-page {
@@ -89,22 +85,52 @@
 
 /* Add more custom styling as needed */
 
-/* Round "Create Event" Button */
+/* Updated styles for the Create Event button */
 .event-form button {
-  background-color: #007bff;
+  background-color: #007bff; /* Blue background color */
   color: white;
   border: none;
-  border-radius: 20px; /* Adjust the border-radius to control roundness */
-  padding: 10px 20px;
+  border-radius: 50px; /* Make the button more rounded */
+  padding: 15px 30px; /* Increase the padding to make it bigger */
   cursor: pointer;
   font-weight: bold;
+  font-size: 16px; /* Increase the font size to make the text bigger */
   transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Apply a hover effect to the button */
+/* Apply a hover effect to the Create Event button */
 .event-form button:hover {
-  background-color: #0056b3; /* Example color on hover */
+  background-color: #12e33f; /* Darker blue color on hover */
 }
+
+/* Updated styles for the Create Event button */
+.calendar-button {
+  margin: 20px;
+  background-color: #007bff; /* Blue background color */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Make the button more rounded */
+  padding: 15px 30px; /* Increase the padding to make it bigger */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* Increase the font size to make the text bigger */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Apply a hover effect to the Create Event button */
+.calendar-button:hover {
+  background-color: #12e33f; /* Darker blue color on hover */
+}
+
+/* Style the button text */
+.calendar-button span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  
+}
+
+
 
 /* Style Date Input Boxes */
 .event-form input[type="datetime-local"] {
