@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom";
 import {
   signInWithGooglePopup,
   logInAuthUserWithEmailAndPassword,
-} from "../utils/firebase/firebase.utils";
-import FormInput from "./FormInput";
-import GoogleLogo from "./../assets/google.svg";
+} from "../../utils/firebase/firebase.utils";
+import FormInput from "../FormInput/FormInput";
+import GoogleLogo from "../../assets/google.svg";
+import "./LogInForm.css";
 
 const defaultFormFields = {
   email: "",
   password: "",
 };
-import "./styles/LogInForm.css";
 
 const LogInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
@@ -51,9 +51,14 @@ const LogInForm = () => {
     <div className="log-in-container">
       <h2 className="login-text">Log In</h2>
       <div class="squiggly-line">
-          <svg width="200" height="10" xmlns="http://www.w3.org/2000/svg">
-             <path d="M0,5 Q20,0 40,5 Q60,10 80,5 Q100,0 120,5 Q140,10 160,5 Q180,0 200,5" fill="none" stroke="black" stroke-width="2" />
-          </svg>
+        <svg width="200" height="10" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0,5 Q20,0 40,5 Q60,10 80,5 Q100,0 120,5 Q140,10 160,5 Q180,0 200,5"
+            fill="none"
+            stroke="black"
+            stroke-width="2"
+          />
+        </svg>
       </div>
       <form onSubmit={handleSubmit}>
         <FormInput

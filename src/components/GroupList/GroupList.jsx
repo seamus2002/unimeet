@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import UserIcon from "./UserIcon";
-import { UserContext } from "../contexts/UserContext";
+import UserIcon from "../UserIcon/UserIcon";
+import { UserContext } from "../../contexts/UserContext";
 import {
   getGroupMemberInfo,
   getGroupMembers,
   getUserGroups,
-} from "../utils/firebase/firebase.utils";
-import test_user from "../assets/testuser.jpeg";
+} from "../../utils/firebase/firebase.utils";
+import test_user from "../../assets/testuser.jpeg";
+import "./GroupList.css";
 
 const GroupList = () => {
   const [currentGroup, setCurrentGroup] = useState(null);

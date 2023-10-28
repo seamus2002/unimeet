@@ -2,10 +2,10 @@ import { useContext } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserContext } from "./contexts/UserContext";
-import LandingPage from "./pages/LandingPage";
-import AuthPage from "./pages/AuthPage";
-import HomePage from "./pages/HomePage";
-import CalendarPage from "./pages/CalendarPage";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import HomePage from "./pages/HomePage/HomePage";
+import CalendarPage from "./pages/CalendarPage/CalendarPage";
 
 function App() {
   const { currentUser } = useContext(UserContext);

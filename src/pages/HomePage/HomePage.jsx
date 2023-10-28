@@ -1,5 +1,5 @@
-import MainSection from "../sections/MainSection";
-import SideSection from "../sections/SideSection";
+import MainSection from "../../sections/MainSection/MainSection";
+import SideSection from "../../sections/SideSection/SideSection";
 
 const HomePage = () => {
   return (

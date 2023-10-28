@@ -4,44 +4,9 @@
   flex-direction: row;
   justify-content: space-between;
 }
-/* Set a media query to fix the scrolling to the right issue */
-.side-section {
-  border-left: 1px solid white;
-  background-color: #f2f3f5;
-  height: 100vh;
-}
 
 .nopadding {
   padding: 0;
-}
-
-.main-header {
-  height: 11vh;
-  background-color: white;
-  font-size: 32px;
-}
-
-.group-list {
-  height: 17vh;
-  background-color: #f2f3f5;
-}
-
-.schedule-list {
-  background-color: #e3e5e8;
-  height: 72vh;
-  width: 100%;
-}
-
-.group-chat {
-  background-color: white;
-  height: 72vh;
-  width: 100%;
-}
-
-.date-panel {
-  background-color: #e3e5e8;
-  border: 1px solid white;
-  border-radius: 20px;
 }
 
 .bottom {

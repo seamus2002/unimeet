@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import GroupList from "../components/GroupList";
-import ScheduleList from "../components/ScheduleList";
-import GroupChat from "../components/GroupChat";
+import Header from "../../components/Header/Header";
+import GroupList from "../../components/GroupList/GroupList";
+import ScheduleList from "../../components/ScheduleList/ScheduleList";
+import GroupChat from "../../components/GroupChat/GroupChat";
 
 const MainSection = () => {
   return (

@@ -1,6 +1,6 @@
-import SignUpForm from "../components/SignUpForm";
-import LogInForm from "../components/LogInForm";
-import "./styles/AuthPage.css";
+import SignUpForm from "../../components/SignUpForm/SignUpForm";
+import LogInForm from "../../components/LogInForm/LogInForm";
+import "./AuthPage.css";
 
 const AuthPage = () => {
   return (

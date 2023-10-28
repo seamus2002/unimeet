@@ -1,4 +1,4 @@
-import React from "react";
+import "./ScheduleList.css";
 
 const ScheduleList = () => {
   return (

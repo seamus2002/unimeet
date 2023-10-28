@@ -1,4 +1,4 @@
-import "./styles/Nametag.css";
+import "./Nametag.css";
 
 const Nametag = ({ displayName }) => {
   return (

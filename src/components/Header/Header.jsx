@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { signOutUser } from "../utils/firebase/firebase.utils";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+import "./Header.css";
 
 const Header = () => {
   const date = new Date();

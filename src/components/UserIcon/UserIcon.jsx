@@ -1,5 +1,5 @@
-import Nametag from "./Nametag";
-import "./styles/UserIcon.css";
+import Nametag from "../Nametag/Nametag";
+import "./UserIcon.css";
 
 const UserIcon = ({ photoURL, displayName }) => {
   return (

@@ -1,4 +1,4 @@
-import "./styles/GroupChat.css";
+import "./GroupChat.css";
 
 const GroupChat = () => {
   return (
