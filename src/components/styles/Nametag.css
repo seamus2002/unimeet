@@ -1,0 +1,14 @@
+.nametag {
+  background-color: #9ba3e8;
+  color: #000;
+  border-radius: 20px;
+  max-width: 120px;
+  max-height: 33px;
+  margin-top: -10px;
+  padding: 4px;
+  z-index: 100;
+  left: 2px;
+  right: 2px;
+  top: 73px;
+  position: absolute;
+}

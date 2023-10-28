@@ -1,10 +1,13 @@
 import Nametag from "./Nametag";
+import "./styles/UserIcon.css";
 
 const UserIcon = ({ photoURL, displayName }) => {
   return (
-    <div className="user-icon">
-      <img className="user-icon-img" src={photoURL} alt="user-icon" />
-      <Nametag displayName={displayName} />
+    <div className="p-2">
+      <div className="user-icon">
+        <img className="user-icon-img" src={photoURL} alt="user-icon" />
+        <Nametag displayName={displayName} />
+      </div>
     </div>
   );
 };

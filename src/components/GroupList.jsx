@@ -57,24 +57,19 @@ const GroupList = () => {
   }, [currentUser, currentGroup, members, memberInfoFetched]);
 
   return (
-    <div className="group-list d-flex align-items-center justify-content-between">
-      <div className="mx-5" >
+    <div className="group-list d-flex align-items-center justify-content-center">
       <UserIcon
         photoURL={currentUser.photoURL ? currentUser.photoURL : test_user}
         displayName={
           currentUser.displayName ? currentUser.displayName : currentUser.email
         }
-        
       />
-      </div>
       {memberInfo.map((info, index) => (
-        <div key={index} className="mx-5">
         <UserIcon
           key={index}
           photoURL={info.photoURL ? info.photoURL : test_user}
           displayName={info.displayName ? info.displayName : info.email}
         />
-        </div>
       ))}
     </div>
   );

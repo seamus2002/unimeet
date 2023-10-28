@@ -1,3 +1,5 @@
+import "./styles/Nametag.css";
+
 const Nametag = ({ displayName }) => {
   return (
     <div className="nametag-container">
