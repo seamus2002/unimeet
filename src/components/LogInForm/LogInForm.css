@@ -1,0 +1,13 @@
+.log-in-container {
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+}
+
+h2 {
+  margin: 10px 0;
+}
+
+.google-logo {
+  margin-right: 7px;
+}

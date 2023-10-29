@@ -1,28 +1,31 @@
-import React from "react";
+import { useContext } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from "./Pages/LandingPage";
-import SignUp from "./Pages/SignUp";
-import LoginPage from "./Pages/LoginPage";
-import HomePage from "./Pages/HomePage";
-import CalendarPage from "./Pages/CalendarPage";
+import { UserContext } from "./contexts/UserContext";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import AuthPage from "./pages/AuthPage/AuthPage";
+import HomePage from "./pages/HomePage/HomePage";
+import CalendarPage from "./pages/CalendarPage/CalendarPage";
 
 function App() {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <Router>
       <Routes>
         {/* Default route for the landing page */}
-        <Route path="/" element={<LandingPage />} />
+        {currentUser ? (
+          <Route exact path="/" element={<HomePage />} />
+        ) : (
+          <Route exact path="/" element={<LandingPage />} />
+        )}
 
         {/* Other routes */}
         <Route path="/CalendarPage" element={<CalendarPage />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </Router>
   );
 }
 
 export default App;
-

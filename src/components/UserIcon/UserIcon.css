@@ -1,0 +1,10 @@
+.user-icon {
+  max-width: 120px;
+  position: relative;
+}
+
+.user-icon-img {
+  border-radius: 50%;
+  max-width: 90px;
+  max-height: 90px;
+}

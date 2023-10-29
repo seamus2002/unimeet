@@ -1,70 +1,16 @@
 /* Sections */
-.bottomLeft-Section{
+.bottomLeft-Section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-/* Set a media query to fix the scrolling to the right issue */
-.side-section {
-  border-left: 1px solid white;
-  background-color: #053b50;
-  height: 100vh;
 }
 
 .nopadding {
   padding: 0;
 }
 
-.header {
-  height: 11vh;
-  background-color: #053b50;
-  font-size: 32px;
-}
-
-.group-list {
-  height: 17vh;
-}
-
-.schedule-list {
-  background-color: #061b23;
-  height: 72vh;
-  width: 100%;
-}
-
-.group-chat {
-  background-color: #053b50;
-  height: 72vh;
-  width: 100%;
-}
-
-.nametag {
-  background-color: #9BA3E8;
-  color: #000;
-  border-radius: 20px;
-  max-width: 120px;
-  max-height: 33px;
-  margin-top: -10px;
-  padding: 4px 10px;
-  z-index: 100;
-  left: 2px; 
-  right: 2px;
-  top: 85px;
-  position: absolute;
-}
-
-.user-icon {
-  max-width: 120px;
+.bottom {
   position: relative;
-}
-
-.user-icon-img {
-  border-radius: 50%;
-  max-width: 90px;
-  max-height: 90px;
-}
-
-.date-panel {
-  background-color: #176B87;
-  border: 1px solid white;
-  border-radius: 20px;
+  top: 95%;
+  transform: translateY(-100%);
 }

@@ -1,0 +1,19 @@
+.auth-container {
+  display: flex;
+  width: 900px;
+  justify-content: space-between;
+  margin: 30px auto;
+}
+
+.page-container {
+  background-size: cover; /* Cover the entire container */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  width: 100%; /* Make the container 100% wide */
+  min-height: 100vh; /* Ensure it covers the entire viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Add additional styles for your content container, if needed */
+}
