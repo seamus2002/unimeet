@@ -10,7 +10,14 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  getDocs,
+  collection,
+} from "firebase/firestore";
 
 // UniMeet web app's Firebase configuration
 const firebaseConfig = {
@@ -145,5 +152,23 @@ export const addEventToFirestore = async (event) => {
     console.log("Event added to Firestore:", event);
   } catch (error) {
     console.error("Error adding event to Firestore:", error);
+  }
+};
+
+export const getEventsFromFirestore = async () => {
+  const eventsCollection = collection(db, "events"); // Replace "events" with your Firestore collection name
+
+  try {
+    const querySnapshot = await getDocs(eventsCollection);
+    const eventsData = [];
+
+    querySnapshot.forEach((doc) => {
+      eventsData.push(doc.data());
+    });
+
+    return eventsData;
+  } catch (error) {
+    console.error("Error fetching events from Firestore:", error);
+    return [];
   }
 };
