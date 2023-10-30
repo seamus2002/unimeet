@@ -137,3 +137,13 @@ export const getGroupMemberInfo = async (uid) => {
     console.log("No such document!");
   }
 };
+
+export const addEventToFirestore = async (event) => {
+  try {
+    const eventRef = doc(db, "events", event.id); // Replace "events" with your Firestore collection name
+    await setDoc(eventRef, event);
+    console.log("Event added to Firestore:", event);
+  } catch (error) {
+    console.error("Error adding event to Firestore:", error);
+  }
+};

@@ -6,6 +6,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { addEventToFirestore } from "../../utils/firebase/firebase.utils";
 
 const localizer = momentLocalizer(moment);
 
@@ -46,7 +47,10 @@ function CalendarPage() {
   const handleCreateEvent = () => {
     if (newEvent.title && newEvent.start && newEvent.end) {
       const newId = Math.max(...events.map((event) => event.id)) + 1;
-      setEvents([...events, { id: newId, ...newEvent }]);
+      const newEventToAdd = { id: newId.toString(), ...newEvent };
+      setEvents([...events, newEventToAdd]);
+      addEventToFirestore(newEventToAdd);
+      console.log(newEventToAdd);
       setShowEventForm(false);
     }
   };
