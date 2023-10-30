@@ -17,6 +17,7 @@ import {
   setDoc,
   getDocs,
   collection,
+  deleteDoc,
 } from "firebase/firestore";
 
 // UniMeet web app's Firebase configuration
@@ -172,3 +173,12 @@ export const getEventsFromFirestore = async () => {
     return [];
   }
 };
+
+export const deleteEventsFromFirestore = async (eventId) => {
+  try {
+      const eventRef = doc(db, "events", eventId); // Replace "events" with your Firestore collection name
+      await deleteDoc(eventRef);
+  } catch (error) {
+    console.error("Error deleting events from Firestore:", error);
+  }
+}
