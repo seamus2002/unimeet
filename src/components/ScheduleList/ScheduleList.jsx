@@ -1,6 +1,9 @@
 import "./ScheduleList.css";
+import useGroupData from "../../hooks/useGroupData";
 
 const ScheduleList = () => {
+  const { currentGroup } = useGroupData();
+
   return (
     <div className="schedule-list">
       <div className="bottom">

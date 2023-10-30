@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs,getDoc, doc, setDoc } from "firebase/firestore"; // Import the required Firestore functions
 import {
   getAuth,
   signInWithRedirect,
@@ -9,8 +10,6 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
-
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 // UniMeet web app's Firebase configuration
 const firebaseConfig = {
@@ -34,7 +33,7 @@ googleProvider.setCustomParameters({
 // Export Firebase Authentication
 export const auth = getAuth();
 
-// Functions to allow user to sign in with Google popup/redirect
+// Functions to allow users to sign in with Google popup/redirect
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
@@ -104,7 +103,7 @@ export const getUserGroups = async (uid) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    //console.log(docSnap.data().groups);
+    // console.log(docSnap.data().groups);
     return docSnap.data().groups;
   } else {
     // docSnap.data() will be undefined in this case
@@ -117,7 +116,7 @@ export const getGroupMembers = async (groupId) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    //console.log(docSnap.data().members);
+    // console.log(docSnap.data().members);
     return docSnap.data().members;
   } else {
     // docSnap.data() will be undefined in this case
@@ -130,10 +129,38 @@ export const getGroupMemberInfo = async (uid) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    //console.log(docSnap.data().members);
+    // console.log(docSnap.data().members);
     return docSnap.data();
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!");
+  }
+};
+
+export const addEventToFirestore = async (event) => {
+  try {
+    const eventRef = doc(db, "events", event.id); // Replace "events" with your Firestore collection name
+    await setDoc(eventRef, event);
+    console.log("Event added to Firestore:", event);
+  } catch (error) {
+    console.error("Error adding event to Firestore:", error);
+  }
+};
+
+export const getEventsFromFirestore = async () => {
+  try {
+    const eventsCollection = collection(db, "events"); // Replace "events" with your Firestore collection name
+    const querySnapshot = await getDocs(eventsCollection); // Use getDocs for querying collections
+    const events = [];
+
+    querySnapshot.forEach((doc) => {
+      const eventData = doc.data();
+      events.push({ id: doc.id, ...eventData });
+    });
+
+    return events;
+  } catch (error) {
+    console.error("Error fetching events from Firestore:", error);
+    return [];
   }
 };

@@ -1,5 +1,3 @@
-import firebase from 'firebase/app'; // Import 'firebase/app'
-import 'firebase/firestore';
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./CalendarPage.css"; // Import your custom CSS file
@@ -8,25 +6,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { addEventToFirestore, getEventsFromFirestore } from "../../utils/firebase/firebase.utils";
 
 const localizer = momentLocalizer(moment);
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAIZELBdvncmPHlUduOE030P9zjDK7fZxs",
-  authDomain: "unimeet-db.firebaseapp.com",
-  projectId: "unimeet-db",
-  storageBucket: "unimeet-db.appspot.com",
-  messagingSenderId: "107988111323",
-  appId: "1:107988111323:web:31a05627bc811c297221fe"
-};
-
-// Initialize Firebase with your configuration
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-
-// Initialize Firestore
-const db = firebase.firestore();
 
 function CalendarPage() {
   const [events, setEvents] = useState([]);
@@ -40,18 +22,10 @@ function CalendarPage() {
   });
 
   useEffect(() => {
-    const userId = 'user.uid'; // Get the user's ID after authentication
-    const eventsRef = db.collection(`users/${userId}/events`);
-    
-    const unsubscribe = eventsRef.onSnapshot((querySnapshot) => {
-      const eventsArray = [];
-      querySnapshot.forEach((doc) => {
-        eventsArray.push({ id: doc.id, ...doc.data() });
-      });
-      setEvents(eventsArray);
+    // Retrieve events from Firestore on component mount
+    getEventsFromFirestore().then((events) => {
+      setEvents(events);
     });
-
-    return unsubscribe;
   }, []);
 
   const handleCreateEventClick = (date) => {
@@ -61,33 +35,36 @@ function CalendarPage() {
 
   const handleCreateEvent = () => {
     if (newEvent.title && newEvent.start && newEvent.end) {
-      const userId = 'user.uid'; // Get the user's ID after authentication
-      db.collection(`users/${userId}/events`)
-        .add(newEvent)
-        .then(() => {
-          console.log("Event added to Firestore");
+      const newEventToAdd = {
+        title: newEvent.title,
+        start: newEvent.start,
+        end: newEvent.end,
+      };
+
+      addEventToFirestore(newEventToAdd)
+        .then((docRef) => {
+          const eventWithId = { id: docRef.id, ...newEventToAdd };
+          setEvents([...events, eventWithId]);
+          setNewEvent({ title: "", start: null, end: null });
+          setShowEventForm(false);
         })
         .catch((error) => {
           console.error("Error adding event: ", error);
         });
-
-      setShowEventForm(false);
     }
   };
 
   const handleDeleteEvent = (eventId) => {
-    const userId = 'user.uid'; // Get the user's ID after authentication
-    db.collection(`users/${userId}/events`)
-      .doc(eventId)
-      .delete()
+    // Remove the event from Firestore and update the state
+    deleteEventFromFirestore(eventId)
       .then(() => {
-        console.log("Event deleted from Firestore");
+        const updatedEvents = events.filter((event) => event.id !== eventId);
+        setEvents(updatedEvents);
+        setSelectedEvent(null);
       })
       .catch((error) => {
         console.error("Error deleting event: ", error);
       });
-
-    setSelectedEvent(null);
   }
 
   function CustomEvent({ event, children }) {
@@ -162,6 +139,7 @@ function CalendarPage() {
         className="calendar-button"
       >
         <i className="fa fa-calendar"></i>{" "}
+        {/* Assuming you are using Font Awesome for the calendar icon */}
         <span>Create Event</span>
       </button>
       <DndProvider backend={HTML5Backend}>
