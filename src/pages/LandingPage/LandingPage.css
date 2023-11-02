@@ -40,7 +40,7 @@
 
 @keyframes colorChange {
   0% {
-    color: #808080; /* Gray */
+    color: white; /* Gray */
   }
   100% {
     color: #3498db; /* Blue */
