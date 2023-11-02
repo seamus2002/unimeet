@@ -1,10 +1,12 @@
 import "./ScheduleList.css";
 import { getEventsFromFirestore } from "../../utils/firebase/firebase.utils";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import EventContainer from "../EventContainer/EventContainer"; // Import the EventContainer component
+import { UserContext } from "../../contexts/UserContext";
 
 const ScheduleList = () => {
   const [events, setEvents] = useState([]);
+  const { currentUser } = useContext(UserContext);
 
   useEffect(() => {
     // Fetch events from Firestore when the component mounts
@@ -21,9 +23,17 @@ const ScheduleList = () => {
       <div className="event-list">
         <h2>Events</h2>
         <ul>
-          {events.map((event, index) => (
-            <EventContainer key={index} event={event} />
-          ))}
+          {events.map((event, index) =>
+            event.uid === currentUser.uid ? (
+              <EventContainer
+                key={index}
+                event={event}
+                displayName={currentUser.displayName}
+              />
+            ) : (
+              console.log(event.uid)
+            )
+          )}
         </ul>
       </div>
       <div className="bottom">

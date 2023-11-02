@@ -1,10 +1,12 @@
 import "./EventContainer.css";
 
-const EventContainer = ({ event }) => {
+const EventContainer = ({ event, displayName }) => {
   return (
     <div className="event-container">
       <p className="event-title">
-        <strong>{event.title}</strong>
+        <strong>
+          {displayName} - {event.title}
+        </strong>
       </p>
       <p className="event-datetime">
         {event.start ? new Date(event.start.seconds * 1000).toString() : "N/A"}{" "}
