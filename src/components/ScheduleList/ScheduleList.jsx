@@ -1,7 +1,7 @@
 import "./ScheduleList.css";
-import useGroupData from "../../hooks/useGroupData";
 import { getEventsFromFirestore } from "../../utils/firebase/firebase.utils";
 import { useEffect, useState } from "react";
+import EventContainer from "../EventContainer/EventContainer"; // Import the EventContainer component
 
 const ScheduleList = () => {
   const [events, setEvents] = useState([]);
@@ -22,16 +22,7 @@ const ScheduleList = () => {
         <h2>Events</h2>
         <ul>
           {events.map((event, index) => (
-            <li key={index}>
-              <strong>{event.title}</strong> -{" "}
-              {event.start
-                ? new Date(event.start.seconds * 1000).toString()
-                : "N/A"}{" "}
-              to{" "}
-              {event.end
-                ? new Date(event.end.seconds * 1000).toString()
-                : "N/A"}
-            </li>
+            <EventContainer key={index} event={event} />
           ))}
         </ul>
       </div>
