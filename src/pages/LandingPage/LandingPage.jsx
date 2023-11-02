@@ -33,7 +33,7 @@ const Landing = () => {
       <section className="phrases-section">
         <h2 className="section-title">Why Choose UNIMEET?</h2>
         <div className="phrase-container">
-          <p className="phrase">
+          <p className="phrase1">
             Revolutionize the way you plan meetups and connect with friends.
           </p>
           <img
@@ -55,7 +55,7 @@ const Landing = () => {
         </div>
 
         <div className="phrase-container">
-          <p className="phrase">
+          <p className="phrase3">
             Experience the future of meetup coordination with UNIMEET.
           </p>
           <img
