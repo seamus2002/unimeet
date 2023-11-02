@@ -30,9 +30,7 @@ const ScheduleList = () => {
                 event={event}
                 displayName={currentUser.displayName}
               />
-            ) : (
-              console.log(event.uid)
-            )
+            ) : null
           )}
         </ul>
       </div>
