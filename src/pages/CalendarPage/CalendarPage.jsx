@@ -54,7 +54,7 @@ function CalendarPage() {
       const newId = Math.max(...events.map((event) => event.id)) + 1;
       const newEventToAdd = {
         id: newId.toString(),
-        uid: currentUser.uid,
+        email: currentUser.email,
         ...newEvent,
       };
 

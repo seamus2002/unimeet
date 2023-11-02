@@ -24,7 +24,7 @@ const ScheduleList = () => {
         <h2>Events</h2>
         <ul>
           {events.map((event, index) =>
-            event.uid === currentUser.uid ? (
+            event.email === currentUser.email ? (
               <EventContainer
                 key={index}
                 event={event}
