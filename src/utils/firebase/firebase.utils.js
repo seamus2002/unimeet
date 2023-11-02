@@ -176,9 +176,9 @@ export const getEventsFromFirestore = async () => {
 
 export const deleteEventsFromFirestore = async (eventId) => {
   try {
-      const eventRef = doc(db, "events", eventId); // Replace "events" with your Firestore collection name
-      await deleteDoc(eventRef);
+    const eventRef = doc(db, "events", eventId); // Replace "events" with your Firestore collection name
+    await deleteDoc(eventRef);
   } catch (error) {
     console.error("Error deleting events from Firestore:", error);
   }
-}
+};

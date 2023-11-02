@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./CalendarPage.css"; // Import your custom CSS file
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -6,7 +6,11 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { addEventToFirestore, deleteEventsFromFirestore } from "../../utils/firebase/firebase.utils";
+import {
+  addEventToFirestore,
+  deleteEventsFromFirestore,
+} from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/UserContext";
 
 const localizer = momentLocalizer(moment);
 
@@ -31,6 +35,7 @@ function CalendarPage() {
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const { currentUser } = useContext(UserContext);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: null,
@@ -47,10 +52,16 @@ function CalendarPage() {
   const handleCreateEvent = () => {
     if (newEvent.title && newEvent.start && newEvent.end) {
       const newId = Math.max(...events.map((event) => event.id)) + 1;
-      const newEventToAdd = { id: newId.toString(), ...newEvent };
-      setEvents([...events, newEventToAdd]);
+      const newEventToAdd = {
+        id: newId.toString(),
+        uid: currentUser.uid,
+        ...newEvent,
+      };
+
+      // Pass the currentUser.uid to addEventToFirestore
       addEventToFirestore(newEventToAdd);
-      console.log(newEventToAdd);
+
+      setEvents([...events, newEventToAdd]);
       setShowEventForm(false);
     }
   };
