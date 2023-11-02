@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import EventContainer from "../EventContainer/EventContainer"; // Import the EventContainer component
 import { UserContext } from "../../contexts/UserContext";
 
-const ScheduleList = () => {
+const ScheduleList = ({ memberInfo }) => {
   const [events, setEvents] = useState([]);
   const { currentUser } = useContext(UserContext);
 
@@ -29,6 +29,15 @@ const ScheduleList = () => {
                 key={index}
                 event={event}
                 displayName={currentUser.displayName}
+              />
+            ) : null
+          )}
+          {events.map((event, index) =>
+            event.email === memberInfo.email ? (
+              <EventContainer
+                key={index}
+                event={event}
+                displayName={memberInfo.displayName}
               />
             ) : null
           )}
