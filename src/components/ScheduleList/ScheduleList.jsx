@@ -32,14 +32,16 @@ const ScheduleList = ({ memberInfo }) => {
               />
             ) : null
           )}
-          {events.map((event, index) =>
-            event.email === memberInfo.email ? (
-              <EventContainer
-                key={index}
-                event={event}
-                displayName={memberInfo.displayName}
-              />
-            ) : null
+          {memberInfo.map((member, index) =>
+            events.map((event, eventIndex) =>
+              event.email === member.email ? (
+                <EventContainer
+                  key={eventIndex}
+                  event={event}
+                  displayName={member.displayName}
+                />
+              ) : null
+            )
           )}
         </ul>
       </div>
