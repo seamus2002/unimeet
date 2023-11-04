@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./CalendarPage.css"; // Import your custom CSS file
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -6,66 +6,72 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { addEventToFirestore, getEventsFromFirestore } from "../../utils/firebase/firebase.utils";
+import {
+  addEventToFirestore,
+  deleteEventsFromFirestore,
+} from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/UserContext";
 
 const localizer = momentLocalizer(moment);
 
+const initialEvents = [
+  {
+    id: 1,
+    title: "Meeting with Client",
+    start: new Date(2023, 10, 15, 10, 0),
+    end: new Date(2023, 10, 15, 12, 0),
+  },
+  {
+    id: 2,
+    title: "Team Meeting",
+    start: new Date(2023, 10, 16, 14, 0),
+    end: new Date(2023, 10, 16, 15, 30),
+  },
+  // Add more events here
+];
+
 function CalendarPage() {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(initialEvents);
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const { currentUser } = useContext(UserContext);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: null,
     end: null,
   });
 
-  useEffect(() => {
-    // Retrieve events from Firestore on component mount
-    getEventsFromFirestore().then((events) => {
-      setEvents(events);
-    });
-  }, []);
-
   const handleCreateEventClick = (date) => {
     setSelectedDate(date);
-    setShowEventForm(true);
+
+    // Toggle showEventForm to open/close the event form
+    setShowEventForm(!showEventForm);
   };
 
   const handleCreateEvent = () => {
     if (newEvent.title && newEvent.start && newEvent.end) {
+      const newId = Math.floor(Math.random() * 1000000); // Generates a random number between 0 and 999999
       const newEventToAdd = {
-        title: newEvent.title,
-        start: newEvent.start,
-        end: newEvent.end,
+        id: newId.toString(),
+        email: currentUser.email,
+        ...newEvent,
       };
 
-      addEventToFirestore(newEventToAdd)
-        .then((docRef) => {
-          const eventWithId = { id: docRef.id, ...newEventToAdd };
-          setEvents([...events, eventWithId]);
-          setNewEvent({ title: "", start: null, end: null });
-          setShowEventForm(false);
-        })
-        .catch((error) => {
-          console.error("Error adding event: ", error);
-        });
+      // Pass the currentUser.uid to addEventToFirestore
+      addEventToFirestore(newEventToAdd);
+
+      setEvents([...events, newEventToAdd]);
+      setShowEventForm(false);
     }
   };
 
   const handleDeleteEvent = (eventId) => {
-    // Remove the event from Firestore and update the state
-    deleteEventFromFirestore(eventId)
-      .then(() => {
-        const updatedEvents = events.filter((event) => event.id !== eventId);
-        setEvents(updatedEvents);
-        setSelectedEvent(null);
-      })
-      .catch((error) => {
-        console.error("Error deleting event: ", error);
-      });
-  }
+    const updatedEvents = events.filter((event) => event.id !== eventId);
+    setEvents(updatedEvents);
+    setSelectedEvent(null);
+    deleteEventsFromFirestore(eventId);
+  };
 
   function CustomEvent({ event, children }) {
     const [, ref] = useDrag({

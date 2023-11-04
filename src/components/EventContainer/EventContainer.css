@@ -1,0 +1,18 @@
+/* Style for the container element */
+.event-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+/* Style for the title */
+.event-title {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style for the date and time */
+.event-datetime {
+  color: #666;
+}

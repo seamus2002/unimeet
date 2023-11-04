@@ -1,28 +1,28 @@
 /* LandingPage.css */
 
+
 /* Container for the entire landing page */
 .landing-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #176B87;
-  padding: 20px;
+  background-color: #f5f5f5; /* Light Gray */
   min-height: 100vh;
   text-align: center;
 }
 
 /* Header section */
 .header {
-  background-color: #0c5a74;
+  height: 6rem;
+  background-color: #3498db; /*  Blue */
   color: white;
-  padding: 20px 0;
   width: 100%;
 }
 
 /* Logo and slogan */
 .logo {
+  margin-top: 10px;
   font-size: 2rem;
-  margin: 0;
 }
 
 .slogan {
@@ -30,10 +30,39 @@
   margin-top: 5px;
 }
 
-/* Hero section */
+/* Section title with color-changing animation */
+.section-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  animation: colorChange 4s ease infinite alternate;
+}
+
+@keyframes colorChange {
+  0% {
+    color: white; /* Gray */
+  }
+  100% {
+    color: rgb(19, 95, 216) /* Blue */
+  }
+}
+
+/* Hero section styles */
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 3em;
+  text-align: center;
+  opacity: 0.5;
+  animation: fadeInOut 3s ease infinite;
   margin-top: 20px;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .hero-description {
@@ -41,14 +70,12 @@
   margin-top: 10px;
 }
 
-/* LandingPage.css */
-
 /* CTA buttons section */
 .cta-section {
   display: flex;
-  flex-direction: row; /* Arrange buttons horizontally */
-  justify-content: space-between; /* Add space in between buttons */
-  margin-top: 20px; /* Adjust the margin as needed */
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .cta-button {
@@ -59,16 +86,15 @@
   text-decoration: none;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 .primary {
-  background-color: #27ae60;
+  background-color: #3498db; /* Blue */
 }
 
-/* Add hover animation for buttons */
 .cta-button:hover {
-  transform: scale(1.1); /* Scale up the button on hover */
+  transform: scale(1.1);
 }
 
 .cta-link {
@@ -76,33 +102,29 @@
   margin-top: 10px;
 }
 
-/* Styling for the Log in and Sign Up buttons */
 .cta-button.secondary {
-  background-color: #27ae60;
+  background-color: #808080; /* Gray */
 }
 
 .cta-button.secondary:hover {
-  background-color: #3498db; /* Change hover color for secondary buttons */
+  background-color: #3498db;
 }
 
 .cta-button.secondary:focus {
   outline: none;
-  background-color: #3498db; /* Change focus color for secondary buttons */
+  background-color: #3498db;
 }
-
-
-/* LandingPage.css */
 
 /* Styling for the Phrases section */
 .phrases-section {
-  background: linear-gradient(to bottom, #2a7ce74d, #053595, #02111b);
+  background: linear-gradient(to bottom, #05bedb, #f5f5f5, #06bedb); /* Gray, Light Gray, Blue */
   padding: 40px 0;
   text-align: center;
   color: #fff; /* White text color */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Make the section full width */
+  width: 100%;
 }
 
 /* Container for phrases and images */
@@ -110,35 +132,35 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; /* Spread out the elements */
-  margin-top: 40px; /* Increased margin */
-  width: 80%; /* Adjust the width as needed */
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 80%;
 }
 
 /* Container for phrases and images in reverse order */
 .phrase-container-reverse {
   display: flex;
-  flex-direction: row-reverse; /* Reverse the order */
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-between; /* Spread out the elements */
-  margin-top: 40px; /* Increased margin */
-  width: 80%; /* Adjust the width as needed */
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 80%;
 }
 
 /* Styling for phrases */
-.phrase {
+.phrase, .phrase3, .phrase1 {
   font-size: 2.0rem;
-  margin-left: 20px; /* Add some spacing between phrase and image */
-  color: #fff; /* White text color */
+  margin-left: 20px;
+  color: #fff;
   font-style: italic;
-  opacity: 0.7; /* Slight opacity for a modern look */
-  cursor: pointer; /* Add a pointer cursor on hover */
+  opacity: 0.7;
+  cursor: pointer;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* Animation for phrases on hover */
-.phrase:hover {
-  animation: slideLeftRight 1s infinite alternate; /* Slide animation on hover */
+.phrase:hover, .phrase3:hover, .phrase1:hover {
+  animation: slideLeftRight 1s infinite alternate;
 }
 
 /* Define the slide animation */
@@ -147,30 +169,26 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(20px); /* Adjust the distance of the slide */
+    transform: translateX(20px);
   }
 }
 
-
-/* LandingPage.css */
-
 /* Styling for images */
 .phrase-image {
-  max-width: 500px; /* Increase the maximum width */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 20px; /* Add spacing between image and phrase */
+  max-width: 500px;
+  height: auto;
+  margin-right: 20px;
   border-radius: 5px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  cursor: pointer; /* Add a pointer cursor */
-  transition: transform 0.3s ease-in-out; /* Remove opacity transition */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Hover animation for images */
 .phrase-image:hover {
-  transform: scale(1.1) translateY(-5px); /* Scale up and move up on hover */
-  animation: bounce 0.3s infinite alternate; /* Bounce animation */
+  transform: scale(1.1) translateY(-5px);
+  animation: bounce 0.3s infinite alternate;
 }
-
 
 /* Bounce animation */
 @keyframes bounce {
@@ -180,4 +198,38 @@
   100% {
     transform: translateY(-10px);
   }
+}
+
+ 
+.section-title{
+  font-size: 2.2em;
+}
+
+.phrases-section p {
+  color: #3a96d3;
+}
+
+.phrases-section .phrase3{
+  color: white;
+}
+.phrases-section .phrase1{
+  color: white;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero {
+  background: linear-gradient(45deg, #3498db, #21d4fd);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
 }

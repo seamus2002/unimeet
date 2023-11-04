@@ -14,7 +14,7 @@ const MainSection = () => {
       <GroupList memberInfo={memberInfo} />
       <div className="row">
         <div className="col-lg-6 nopadding">
-          <ScheduleList />
+          <ScheduleList memberInfo={memberInfo} />
         </div>
         <div className="col-lg-6 nopadding">
           <GroupChat />

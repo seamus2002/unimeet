@@ -1,5 +1,21 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs,getDoc, doc, setDoc } from "firebase/firestore"; // Import the required Firestore functions
+import { query, where, orderBy } from "firebase/firestore";
+import { 
+  initializeApp 
+} from "firebase/app";
+
+import { 
+  addDoc, 
+  collection, 
+  serverTimestamp, 
+  getFirestore, 
+  doc, 
+  getDoc, 
+  setDoc, 
+  getDocs, 
+  deleteDoc, 
+  onSnapshot
+} from "firebase/firestore";
+
 import {
   getAuth,
   signInWithRedirect,
@@ -33,7 +49,7 @@ googleProvider.setCustomParameters({
 // Export Firebase Authentication
 export const auth = getAuth();
 
-// Functions to allow users to sign in with Google popup/redirect
+// Functions to allow user to sign in with Google popup/redirect
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
@@ -103,7 +119,7 @@ export const getUserGroups = async (uid) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    // console.log(docSnap.data().groups);
+    //console.log(docSnap.data().groups);
     return docSnap.data().groups;
   } else {
     // docSnap.data() will be undefined in this case
@@ -116,7 +132,7 @@ export const getGroupMembers = async (groupId) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    // console.log(docSnap.data().members);
+    //console.log(docSnap.data().members);
     return docSnap.data().members;
   } else {
     // docSnap.data() will be undefined in this case
@@ -129,7 +145,7 @@ export const getGroupMemberInfo = async (uid) => {
   const docSnap = await getDoc(userDocRef);
 
   if (docSnap.exists()) {
-    // console.log(docSnap.data().members);
+    //console.log(docSnap.data().members);
     return docSnap.data();
   } else {
     // docSnap.data() will be undefined in this case
@@ -148,19 +164,61 @@ export const addEventToFirestore = async (event) => {
 };
 
 export const getEventsFromFirestore = async () => {
+  const eventsCollection = collection(db, "events"); // Replace "events" with your Firestore collection name
+
   try {
-    const eventsCollection = collection(db, "events"); // Replace "events" with your Firestore collection name
-    const querySnapshot = await getDocs(eventsCollection); // Use getDocs for querying collections
-    const events = [];
+    const querySnapshot = await getDocs(eventsCollection);
+    const eventsData = [];
 
     querySnapshot.forEach((doc) => {
-      const eventData = doc.data();
-      events.push({ id: doc.id, ...eventData });
+      eventsData.push(doc.data());
     });
 
-    return events;
+    return eventsData;
   } catch (error) {
     console.error("Error fetching events from Firestore:", error);
     return [];
   }
+};
+
+export const deleteEventsFromFirestore = async (eventId) => {
+  try {
+    const eventRef = doc(db, "events", eventId); // Replace "events" with your Firestore collection name
+    await deleteDoc(eventRef);
+  } catch (error) {
+    console.error("Error deleting events from Firestore:", error);
+  }
+};
+
+
+//====================================================================================================================
+//                    CODE FOR MESSAGING FEATURES:
+
+export const addMessageToFirestore = async (groupId, userId, text) => {
+  const messageRef = collection(db, "messages");
+  return await addDoc(messageRef, {
+    groupId,
+    userId,
+    text,
+    timestamp: serverTimestamp(),
+  });
+};
+
+export const listenForGroupMessages = (groupId, callback) => {
+  const messagesRef = collection(db, "messages");
+  const groupMessagesQuery = query(
+    messagesRef,
+    where("groupId", "==", groupId),
+    orderBy("timestamp")
+  );
+
+  const unsubscribe = onSnapshot(groupMessagesQuery, (snapshot) => {
+    const messages = [];
+    snapshot.forEach((doc) => {
+      messages.push({ id: doc.id, ...doc.data() });
+    });
+    callback(messages);
+  });
+
+  return unsubscribe;
 };
