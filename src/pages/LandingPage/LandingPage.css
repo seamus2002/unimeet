@@ -43,7 +43,7 @@
     color: white; /* Gray */
   }
   100% {
-    color: #3498db; /* Blue */
+    color: rgb(19, 95, 216) /* Blue */
   }
 }
 
@@ -117,7 +117,7 @@
 
 /* Styling for the Phrases section */
 .phrases-section {
-  background: linear-gradient(to bottom, #808080, #f5f5f5, #3498db); /* Gray, Light Gray, Blue */
+  background: linear-gradient(to bottom, #05bedb, #f5f5f5, #06bedb); /* Gray, Light Gray, Blue */
   padding: 40px 0;
   text-align: center;
   color: #fff; /* White text color */
@@ -159,7 +159,7 @@
 }
 
 /* Animation for phrases on hover */
-.phrase:hover, .phrase3:hover, .phrase1 {
+.phrase:hover, .phrase3:hover, .phrase1:hover {
   animation: slideLeftRight 1s infinite alternate;
 }
 
@@ -214,4 +214,22 @@
 }
 .phrases-section .phrase1{
   color: white;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero {
+  background: linear-gradient(45deg, #3498db, #21d4fd);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
 }
