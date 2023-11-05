@@ -29,6 +29,7 @@ const ScheduleList = ({ memberInfo }) => {
                 key={index}
                 event={event}
                 displayName={currentUser.displayName}
+                showDelete={true}
               />
             ) : null
           )}
