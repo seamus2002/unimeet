@@ -2,12 +2,8 @@ import Header from "../../components/Header/Header";
 import GroupList from "../../components/GroupList/GroupList";
 import ScheduleList from "../../components/ScheduleList/ScheduleList";
 import GroupChat from "../../components/GroupChat/GroupChat";
-import useGroupData from "../../hooks/useGroupData";
 
-const MainSection = () => {
-  const { currentGroup, members, memberInfo, memberInfoFetched } =
-    useGroupData();
-
+const MainSection = ({ memberInfo }) => {
   return (
     <div className="main-section">
       <Header />
