@@ -21,7 +21,7 @@ const ScheduleList = ({ memberInfo }) => {
   return (
     <div className="schedule-list">
       <div className="event-list">
-        <h2>Events</h2>
+        <h3>Events</h3>
         <ul>
           {events.map((event, index) =>
             event.email === currentUser.email ? (

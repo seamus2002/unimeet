@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-1">
-            <i className="bi bi-three-dots-vertical" onClick={signOutUser}></i>
+            <i className="bi bi-box-arrow-left" onClick={signOutUser}></i>
           </div>
 
           {/* Date Panel */}

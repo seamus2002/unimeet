@@ -1,5 +1,38 @@
 .side-section {
-  border-left: 1px solid white;
-  background-color: #f2f3f5;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding: 1.5rem;
+}
+
+.side-header {
+  font-size: 1.5rem;
+}
+
+hr {
+  border: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin-bottom: 1rem;
+}
+
+.group-select {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }
