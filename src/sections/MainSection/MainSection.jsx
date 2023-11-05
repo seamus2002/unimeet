@@ -2,6 +2,7 @@ import Header from "../../components/Header/Header";
 import GroupList from "../../components/GroupList/GroupList";
 import ScheduleList from "../../components/ScheduleList/ScheduleList";
 import GroupChat from "../../components/GroupChat/GroupChat";
+import AddEventForm from "../../components/AddEventForm/AddEventForm";
 
 const MainSection = ({ memberInfo }) => {
   return (
@@ -13,7 +14,8 @@ const MainSection = ({ memberInfo }) => {
           <ScheduleList memberInfo={memberInfo} />
         </div>
         <div className="col col-lg-6 nopadding">
-          <GroupChat />
+          <AddEventForm />
+          {/* <GroupChat /> */}
         </div>
       </div>
     </div>
