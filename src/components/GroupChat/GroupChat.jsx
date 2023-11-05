@@ -13,7 +13,7 @@ const GroupChat = () => {
       </form>
       
       <div className="bottomPart">
-        <button className="btn btn-success">Add Event</button>
+        <button className="btn btn-success left">Add Event</button>
         <button className="btn btn-danger">Delete Event</button>
       </div>
     </div>
