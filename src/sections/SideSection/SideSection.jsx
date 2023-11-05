@@ -1,11 +1,20 @@
 import "./SideSection.css";
+import logo from "../../assets/logo.png";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 const SideSection = () => {
   return (
     <div className="side-section">
-      <span className="side-header">UniMeet</span>
+      <span className="side-header">
+        UniMeet <img src={logo} alt="logo" style={{ width: "50px" }} />
+      </span>
       <hr />
-      <ul className="nav-list">
+      <p>Welcome to UniMeet!</p>
+      <ul>
+        <li>Add your scheduled events</li>
+        <li>View your friends' events</li>
+        <li>Plan a time to meet up</li>
+      </ul>
+      {/* <ul className="nav-list">
         <li className="nav-item">
           <label htmlFor="groups">Group: </label>
           <select name="groups" id="groups" className="group-select">
@@ -21,7 +30,7 @@ const SideSection = () => {
             Sign Out
           </a>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };
