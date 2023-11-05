@@ -8,11 +8,11 @@ const MainSection = ({ memberInfo }) => {
     <div className="main-section">
       <Header />
       <GroupList memberInfo={memberInfo} />
-      <div className="row">
-        <div className="col-lg-6 nopadding">
+      <div className="row" style={{ margin: "auto" }}>
+        <div className="col col-lg-6 nopadding">
           <ScheduleList memberInfo={memberInfo} />
         </div>
-        <div className="col-lg-6 nopadding">
+        <div className="col col-lg-6 nopadding">
           <GroupChat />
         </div>
       </div>
