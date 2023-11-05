@@ -1,5 +1,5 @@
 import "./SideSection.css";
-
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 const SideSection = () => {
   return (
     <div className="side-section">
@@ -17,7 +17,7 @@ const SideSection = () => {
         </li>
         <li className="nav-item">Calendar</li>
         <li className="nav-item">
-          <a href="#" className="nav-link">
+        <a className="nav-link" onClick={signOutUser}>
             Sign Out
           </a>
         </li>
