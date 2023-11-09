@@ -1,6 +1,7 @@
 import "./SideSection.css";
 import logo from "../../assets/logo.png";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import SideCalendar from "../../components/SideCalendar/SideCalendar";
 const SideSection = () => {
   return (
     <div className="side-section">
@@ -14,6 +15,7 @@ const SideSection = () => {
         <li>View your friends' events</li>
         <li>Plan a time to meet up</li>
       </ul>
+      <SideCalendar />
       {/* <ul className="nav-list">
         <li className="nav-item">
           <label htmlFor="groups">Group: </label>

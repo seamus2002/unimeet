@@ -17,8 +17,14 @@ export const DateProvider = ({ children }) => {
     setCurrentDate(newDate);
   };
 
+  const changeToSpecificDay = (newDate) => {
+    setCurrentDate(newDate);
+  };
+
   return (
-    <DateContext.Provider value={{ currentDate, addOneDay, subtractOneDay }}>
+    <DateContext.Provider
+      value={{ currentDate, addOneDay, subtractOneDay, changeToSpecificDay }}
+    >
       {children}
     </DateContext.Provider>
   );
