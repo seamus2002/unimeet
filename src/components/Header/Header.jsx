@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./Header.css";
+import { DateContext } from "../../contexts/DateContext";
+import { useContext } from "react";
 
 const Header = () => {
-  const date = new Date();
+  const { currentDate } = useContext(DateContext);
 
   return (
     <div className="main-header d-flex align-items-center justify-content-center">
@@ -22,7 +24,9 @@ const Header = () => {
               <div className="col-sm-1">
                 {/* <i className="bi bi-caret-left-fill"></i> */}
               </div>
-              <div className="col-sm-10">{date.toLocaleDateString()}</div>
+              <div className="col-sm-10">
+                {currentDate.toLocaleDateString()}
+              </div>
               <div className="col-sm-1">
                 {/* <i className="bi bi-caret-right-fill"></i> */}
               </div>
