@@ -23,7 +23,7 @@ const Header = () => {
             <div className="row">
               <div className="col-sm-1">
                 <i
-                  className="bi bi-caret-left-fill"
+                  className="bi bi-caret-left-fill pointer"
                   onClick={subtractOneDay}
                 ></i>
               </div>
@@ -31,7 +31,10 @@ const Header = () => {
                 {currentDate.toLocaleDateString()}
               </div>
               <div className="col-sm-1">
-                <i className="bi bi-caret-right-fill" onClick={addOneDay}></i>
+                <i
+                  className="bi bi-caret-right-fill pointer"
+                  onClick={addOneDay}
+                ></i>
               </div>
             </div>
           </div>
