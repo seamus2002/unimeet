@@ -3,10 +3,12 @@ import { getEventsFromFirestore } from "../../utils/firebase/firebase.utils";
 import { useContext, useEffect, useState } from "react";
 import EventContainer from "../EventContainer/EventContainer"; // Import the EventContainer component
 import { UserContext } from "../../contexts/UserContext";
+import { DateContext } from "../../contexts/DateContext";
 
 const ScheduleList = ({ memberInfo }) => {
   const [events, setEvents] = useState([]);
   const { currentUser } = useContext(UserContext);
+  const { currentDate } = useContext(DateContext);
 
   useEffect(() => {
     // Fetch events from Firestore when the component mounts
@@ -25,22 +27,28 @@ const ScheduleList = ({ memberInfo }) => {
         <ul>
           {events.map((event, index) =>
             event.email === currentUser.email ? (
-              <EventContainer
-                key={index}
-                event={event}
-                displayName={currentUser.displayName}
-                showDelete={true}
-              />
+              currentDate.toLocaleDateString() ===
+              new Date(event.start.seconds * 1000).toLocaleDateString() ? (
+                <EventContainer
+                  key={index}
+                  event={event}
+                  displayName={currentUser.displayName}
+                  showDelete={true}
+                />
+              ) : null
             ) : null
           )}
           {memberInfo.map((member, index) =>
             events.map((event, eventIndex) =>
               event.email === member.email ? (
-                <EventContainer
-                  key={eventIndex}
-                  event={event}
-                  displayName={member.displayName}
-                />
+                currentDate.toLocaleDateString() ===
+                new Date(event.start.seconds * 1000).toLocaleDateString() ? (
+                  <EventContainer
+                    key={eventIndex}
+                    event={event}
+                    displayName={member.displayName}
+                  />
+                ) : null
               ) : null
             )
           )}
