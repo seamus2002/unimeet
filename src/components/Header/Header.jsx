@@ -5,7 +5,7 @@ import { DateContext } from "../../contexts/DateContext";
 import { useContext } from "react";
 
 const Header = () => {
-  const { currentDate } = useContext(DateContext);
+  const { currentDate, addOneDay, subtractOneDay } = useContext(DateContext);
 
   return (
     <div className="main-header d-flex align-items-center justify-content-center">
@@ -22,13 +22,16 @@ const Header = () => {
           <div className="col-sm-10 date-panel">
             <div className="row">
               <div className="col-sm-1">
-                {/* <i className="bi bi-caret-left-fill"></i> */}
+                <i
+                  className="bi bi-caret-left-fill"
+                  onClick={subtractOneDay}
+                ></i>
               </div>
               <div className="col-sm-10">
                 {currentDate.toLocaleDateString()}
               </div>
               <div className="col-sm-1">
-                {/* <i className="bi bi-caret-right-fill"></i> */}
+                <i className="bi bi-caret-right-fill" onClick={addOneDay}></i>
               </div>
             </div>
           </div>
