@@ -22,19 +22,19 @@ const Header = () => {
           <div className="col-sm-10 date-panel">
             <div className="row">
               <div className="col-sm-1">
-                <i
+                {/* <i
                   className="bi bi-caret-left-fill pointer"
                   onClick={subtractOneDay}
-                ></i>
+                ></i> */}
               </div>
               <div className="col-sm-10">
                 {currentDate.toLocaleDateString()}
               </div>
               <div className="col-sm-1">
-                <i
+                {/* <i
                   className="bi bi-caret-right-fill pointer"
                   onClick={addOneDay}
-                ></i>
+                ></i> */}
               </div>
             </div>
           </div>
