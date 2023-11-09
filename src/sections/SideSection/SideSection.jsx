@@ -16,6 +16,10 @@ const SideSection = () => {
         <li>Plan a time to meet up</li>
       </ul>
       <SideCalendar />
+      <br />
+      <button onClick={signOutUser} className="btn btn-primary">
+        <i className="bi bi-box-arrow-left" /> Sign Out
+      </button>
       {/* <ul className="nav-list">
         <li className="nav-item">
           <label htmlFor="groups">Group: </label>

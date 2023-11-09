@@ -13,8 +13,8 @@ const Header = () => {
         <div className="row">
           <div className="col-sm-1">
             <i
-              className="bi bi-box-arrow-left pointer"
-              onClick={signOutUser}
+              className="bi bi-gear-wide-connected pointer"
+              onClick={() => console.log("Go to settings page")}
             ></i>
           </div>
 
