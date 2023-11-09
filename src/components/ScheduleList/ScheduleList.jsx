@@ -27,27 +27,31 @@ const ScheduleList = ({ memberInfo }) => {
         <ul>
           {events.map((event, index) =>
             event.email === currentUser.email ? (
-              currentDate.toLocaleDateString() ===
-              new Date(event.start.seconds * 1000).toLocaleDateString() ? (
-                <EventContainer
-                  key={index}
-                  event={event}
-                  displayName={currentUser.displayName}
-                  showDelete={true}
-                />
+              event.start && event.end ? (
+                currentDate.toLocaleDateString() ===
+                new Date(event.start.seconds * 1000).toLocaleDateString() ? (
+                  <EventContainer
+                    key={index}
+                    event={event}
+                    displayName={currentUser.displayName}
+                    showDelete={true}
+                  />
+                ) : null
               ) : null
             ) : null
           )}
           {memberInfo.map((member, index) =>
             events.map((event, eventIndex) =>
               event.email === member.email ? (
-                currentDate.toLocaleDateString() ===
-                new Date(event.start.seconds * 1000).toLocaleDateString() ? (
-                  <EventContainer
-                    key={eventIndex}
-                    event={event}
-                    displayName={member.displayName}
-                  />
+                event.start && event.end ? (
+                  currentDate.toLocaleDateString() ===
+                  new Date(event.start.seconds * 1000).toLocaleDateString() ? (
+                    <EventContainer
+                      key={eventIndex}
+                      event={event}
+                      displayName={member.displayName}
+                    />
+                  ) : null
                 ) : null
               ) : null
             )
