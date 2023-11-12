@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import AuthPage from "./pages/AuthPage/AuthPage";
 import HomePage from "./pages/HomePage/HomePage";
 import CalendarPage from "./pages/CalendarPage/CalendarPage";
+import Settings from "./pages/Settings/Settings";
 
 function App() {
   const { currentUser } = useContext(UserContext);
@@ -23,6 +24,8 @@ function App() {
         {/* Other routes */}
         <Route path="/CalendarPage" element={<CalendarPage />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/Settings" element={<Settings />} />
+
       </Routes>
     </Router>
   );

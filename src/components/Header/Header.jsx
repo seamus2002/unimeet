@@ -1,10 +1,12 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Link } from "react-router-dom";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import "./Header.css";
 import { DateContext } from "../../contexts/DateContext";
-import { useContext } from "react";
 
 const Header = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const { currentDate, addOneDay, subtractOneDay } = useContext(DateContext);
 
   return (
@@ -12,37 +14,42 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-sm-1">
-            <i
-              className="bi bi-gear-wide-connected pointer"
-              onClick={() => console.log("Go to settings page")}
-            ></i>
+            {/* Settings Button */}
+            <button
+              className="btn btn-icon"
+              onClick={() => navigate('/Settings')}
+            >
+              <i className="bi bi-gear-wide-connected"></i>
+            </button>
           </div>
 
           {/* Date Panel */}
           <div className="col-sm-10 date-panel">
             <div className="row">
               <div className="col-sm-1">
-                {/* <i
+                {/* Subtract One Day Button */}
+                <i
                   className="bi bi-caret-left-fill pointer"
                   onClick={subtractOneDay}
-                ></i> */}
+                ></i>
               </div>
               <div className="col-sm-10">
                 {currentDate.toLocaleDateString()}
               </div>
               <div className="col-sm-1">
-                {/* <i
+                {/* Add One Day Button */}
+                <i
                   className="bi bi-caret-right-fill pointer"
                   onClick={addOneDay}
-                ></i> */}
+                ></i>
               </div>
             </div>
           </div>
 
           <div className="col-sm-1">
-            {/* CALENDAR BUTTON */}
+            {/* Calendar Button */}
             <Link to="/CalendarPage">
-              <i className="bi bi-calendar"></i>
+              <i className="bi bi-calendar pointer"></i>
             </Link>
           </div>
         </div>

@@ -12,3 +12,18 @@
 .pointer{
   cursor: pointer;
 }
+
+.btn-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-size: 45px; /* Increase the font-size to make the icon larger */
+  transition: transform 0.3s ease; /* Smooth transition for transform */
+}
+
+.btn-icon:hover {
+ 
+  transform: rotate(180deg); /* Rotates the button 90 degrees on hover */
+}
