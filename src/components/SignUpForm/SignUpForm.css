@@ -18,3 +18,18 @@ h2 {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
+
+.back-button {
+  background-color: #007bff; /* Bright blue color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0eeb42; /* Bright green color on hover */
+  transform: scale(1.1); /* Slightly larger size on hover */
+}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -16,6 +17,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -58,6 +60,11 @@ const SignUpForm = () => {
 
   return (
     <div className="sign-up-container">
+      {/* Back button */}
+      <div className="back-button-container" style={{ position: 'absolute', top: '10px', left: '10px' }}>
+        <button className="back-button" onClick={() => navigate('/')}>Back</button>
+      </div>
+
       <h2 className="sign-up-text">Sign up</h2>
       <div class="squiggly-line">
         <svg width="200" height="10" xmlns="http://www.w3.org/2000/svg">
