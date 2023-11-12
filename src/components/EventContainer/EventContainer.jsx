@@ -33,7 +33,8 @@ const EventContainer = ({ event, displayName, showDelete }) => {
         {event.start ? new Date(event.start.seconds * 1000).toString() : "N/A"}{""}
         <br ></br>
         to 
-        <br></br>{event.end ? new Date(event.end.seconds * 1000).toString() : "N/A"}
+        <br></br>
+        {event.end ? new Date(event.end.seconds * 1000).toString() : "N/A"}
       </p>
     </div>
   );
