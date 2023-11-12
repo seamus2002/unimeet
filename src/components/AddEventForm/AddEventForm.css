@@ -7,6 +7,7 @@
   margin-right: 20px;
 }
 h3{
+  font-size: 30px;
   text-decoration: underline;
 }
 input {
@@ -24,11 +25,11 @@ input {
   margin-left: 3.5%;
   margin-right: 28%;
 }
-.starting-time{
-}
+
 .event-name{
   margin-top: 40px;
   font-size: 24px;
+  width: 80%;
 }
 .time-fields{
   display: flex;
