@@ -30,9 +30,10 @@ const Header = () => {
 
           <div className="col-sm-1">
             {/* Calendar Button */}
-            <Link to="/CalendarPage">
-              <i className="bi bi-calendar pointer"></i>
-            </Link>
+            <i
+              onClick={() => navigate("/CalendarPage")}
+              className="bi bi-calendar pointer"
+            ></i>
           </div>
         </div>
       </div>
