@@ -33,7 +33,7 @@ const EventContainer = ({ event, displayName, showDelete }) => {
         {event.start
           ? new Date(event.start.seconds * 1000).toLocaleTimeString()
           : "N/A"}
-        {" to "}
+        {" - "}
         {event.end
           ? new Date(event.end.seconds * 1000).toLocaleTimeString()
           : "N/A"}
