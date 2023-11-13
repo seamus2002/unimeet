@@ -1,0 +1,172 @@
+/* Add these styles to your CSS file */
+.home-button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
+  background-color: #007bff; /* Set the background color for the primary button */
+  transition: background-color 0.3s, transform 0.3s;
+}
+.home-button:hover {
+  background-color: #12e33f; /* Darker blue color on hover */
+}
+/* Add these styles to your CSS file */
+.home-button-container {
+  display: flex; /* Enable Flexbox layout */
+  justify-content: flex-start; /* Push the button to the left side */
+  margin: 1px; /* Add margin for spacing, adjust as needed */
+}
+
+/* Add these styles to your CSS file */
+.event-cancel-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(21, 178, 206);
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* Define styles for the entire CalendarPage component */
+.calendar-page {
+  background-color: #190be1; /* Set the desired background color */
+  padding: 20px;
+  /* Add more styles as needed */
+}
+
+/* Calendar Container */
+.calendar-page {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Event Container */
+.custom-calendar {
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+/* Event Slot Styles */
+.rbc-event {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+/* Event Slot Hover Effect */
+.rbc-event:hover {
+  background-color: #ff5722; /* Example color for hover effect */
+  transform: translateY(-5px) scale(1.05);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Selected Event */
+.custom-event.selected {
+  background-color: #ff5722; /* Example color for selected events */
+  transform: translateY(-5px) scale(1.05);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Add more custom styling as needed */
+
+/* Updated styles for the Create Event button */
+.event-form button {
+  background-color: #007bff; /* Blue background color */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Make the button more rounded */
+  padding: 15px 30px; /* Increase the padding to make it bigger */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* Increase the font size to make the text bigger */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Apply a hover effect to the Create Event button */
+.event-form button:hover {
+  background-color: #12e33f; /* Darker blue color on hover */
+}
+
+/* Updated styles for the Create Event button */
+.calendar-button {
+  margin: 20px;
+  background-color: #007bff; /* Blue background color */
+  color: white;
+  border: none;
+  border-radius: 50px; /* Make the button more rounded */
+  padding: 15px 30px; /* Increase the padding to make it bigger */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px; /* Increase the font size to make the text bigger */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Apply a hover effect to the Create Event button */
+.calendar-button:hover {
+  background-color: #12e33f; /* Darker blue color on hover */
+}
+
+/* Style the button text */
+.calendar-button span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+/* Style Date Input Boxes */
+.event-form input[type="datetime-local"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px; /* Adjust the border-radius for friendliness */
+  margin: 5px 0;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+.event-form input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 5px 0;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Add more custom styling as needed */
+
+/* Style Calendar Button Icon */
+button.CalendarPage__calendar-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff; /* Blue color for the icon */
+  font-size: 24px; /* Adjust the font size to control the icon's size */
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+/* Apply a hover effect to the calendar button icon */
+button.CalendarPage__calendar-button:hover {
+  color: #4caf50; /* Green color on hover */
+}
