@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./BigCalendar.css"; // Import your custom CSS file
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -9,6 +9,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import {
   addEventToFirestore,
   deleteEventsFromFirestore,
+  getEventsFromFirestore,
 } from "../../utils/firebase/firebase.utils";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -41,6 +42,24 @@ const BigCalendar = () => {
     start: null,
     end: null,
   });
+  useEffect(() => {
+    // Fetch events from Firestore when the component mounts
+    async function fetchEvents() {
+      const eventsData = await getEventsFromFirestore();
+
+      // Convert Firestore timestamps to JavaScript dates
+      const convertedEvents = eventsData.map((event) => ({
+        ...event,
+        start: event.start.toDate(),
+        end: event.end.toDate(),
+      }));
+
+      setEvents(convertedEvents);
+      console.log(convertedEvents);
+    }
+
+    fetchEvents();
+  }, []);
 
   const handleCreateEventClick = (date) => {
     setSelectedDate(date);
