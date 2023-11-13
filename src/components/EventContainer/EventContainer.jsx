@@ -18,23 +18,25 @@ const EventContainer = ({ event, displayName, showDelete }) => {
   return (
     <div className="event-container">
       <p className="event-title">
-          {displayName} - {event.title}{" "}
-          {showDelete ? (
-            <button
-              type="button"
-              className="btn btn-outline-danger sizing"
-              onClick={() => handleDeleteEvent(event.id)}
-            >
-              X
-            </button>
-          ) : null}
+        {displayName} - {event.title}{" "}
+        {showDelete ? (
+          <button
+            type="button"
+            className="btn btn-outline-danger sizing"
+            onClick={() => handleDeleteEvent(event.id)}
+          >
+            <i class="bi bi-trash" />
+          </button>
+        ) : null}
       </p>
       <p className="event-datetime">
-        {event.start ? new Date(event.start.seconds * 1000).toString() : "N/A"}{""}
-        <br ></br>
-        to 
-        <br></br>
-        {event.end ? new Date(event.end.seconds * 1000).toString() : "N/A"}
+        {event.start
+          ? new Date(event.start.seconds * 1000).toLocaleTimeString()
+          : "N/A"}
+        {" to "}
+        {event.end
+          ? new Date(event.end.seconds * 1000).toLocaleTimeString()
+          : "N/A"}
       </p>
     </div>
   );
