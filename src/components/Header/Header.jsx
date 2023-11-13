@@ -15,35 +15,17 @@ const Header = () => {
         <div className="row">
           <div className="col-sm-1">
             {/* Settings Button */}
-            <button
-              className="btn btn-icon"
-              onClick={() => navigate('/Settings')}
-            >
-              <i className="bi bi-gear-wide-connected"></i>
-            </button>
+            <div className="rotate">
+              <i
+                onClick={() => navigate("/Settings")}
+                className="bi bi-gear-wide-connected pointer"
+              ></i>
+            </div>
           </div>
 
           {/* Date Panel */}
           <div className="col-sm-10 date-panel">
-            <div className="row">
-              <div className="col-sm-1">
-                {/* Subtract One Day Button */}
-                <i
-                  className="bi bi-caret-left-fill pointer"
-                  onClick={subtractOneDay}
-                ></i>
-              </div>
-              <div className="col-sm-10">
-                {currentDate.toLocaleDateString()}
-              </div>
-              <div className="col-sm-1">
-                {/* Add One Day Button */}
-                <i
-                  className="bi bi-caret-right-fill pointer"
-                  onClick={addOneDay}
-                ></i>
-              </div>
-            </div>
+            <div>{currentDate.toLocaleDateString()}</div>
           </div>
 
           <div className="col-sm-1">
