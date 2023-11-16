@@ -1,13 +1,11 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { Link } from "react-router-dom";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
-import "./Header.css";
+import { useNavigate } from "react-router-dom";
 import { DateContext } from "../../contexts/DateContext";
+import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate(); // Initialize useNavigate
-  const { currentDate, addOneDay, subtractOneDay } = useContext(DateContext);
+  const { currentDate } = useContext(DateContext);
 
   return (
     <div className="main-header d-flex align-items-center justify-content-center">

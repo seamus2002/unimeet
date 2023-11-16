@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import "./BigCalendar.css"; // Import your custom CSS file
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
@@ -121,9 +119,24 @@ const BigCalendar = () => {
 
   return (
     <div className="calendar-page">
-      {showEventForm && (
+      {selectedEvent ? (
+        <div className="event-cancel-modal">
+          <p>Are you sure you want to cancel this event?</p>
+          <button
+            className="btn btn-danger"
+            onClick={() => handleDeleteEvent(selectedEvent.id)}
+          >
+            Cancel Event
+          </button>
+          <button
+            className="btn btn-secondary"
+            onClick={() => setSelectedEvent(null)}
+          >
+            Never Mind
+          </button>
+        </div>
+      ) : (
         <div className="event-form">
-          <h2>Create Event</h2>
           <input
             type="text"
             placeholder="Event Title"
@@ -151,17 +164,12 @@ const BigCalendar = () => {
               setNewEvent({ ...newEvent, end: moment(e.target.value).toDate() })
             }
           />
-          <button onClick={handleCreateEvent}>Save Event</button>
+          <button className="btn btn-primary" onClick={handleCreateEvent}>
+            Save Event
+          </button>
         </div>
       )}
-      <button
-        onClick={() => handleCreateEventClick(selectedDate)}
-        className="calendar-button"
-      >
-        <i className="fa fa-calendar"></i>{" "}
-        {/* Assuming you are using Font Awesome for the calendar icon */}
-        <span>Create Event</span>
-      </button>
+
       <DndProvider backend={HTML5Backend}>
         <Calendar
           localizer={localizer}
@@ -172,18 +180,9 @@ const BigCalendar = () => {
           components={{
             eventWrapper: CustomEvent,
           }}
-          className="custom-calendar"
+          style={{ height: 450 }}
         />
       </DndProvider>
-      {selectedEvent && (
-        <div className="event-cancel-modal">
-          <p>Are you sure you want to cancel this event?</p>
-          <button onClick={() => handleDeleteEvent(selectedEvent.id)}>
-            Cancel Event
-          </button>
-          <button onClick={() => setSelectedEvent(null)}>Go Back</button>
-        </div>
-      )}
     </div>
   );
 };
