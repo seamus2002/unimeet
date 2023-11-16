@@ -182,3 +182,23 @@ export const deleteEventsFromFirestore = async (eventId) => {
     console.error("Error deleting events from Firestore:", error);
   }
 };
+
+export const updateUser = async (user) => {
+  try {
+    // Update Firestore document with new displayName and photoURL
+    await db.collection("users").doc(user.uid).update({
+      displayName,
+      photoURL,
+    });
+
+    // Update user object in the authentication state
+    user.updateProfile({
+      displayName,
+      photoURL,
+    });
+
+    alert("Changes saved successfully!");
+  } catch (error) {
+    console.error("Error saving changes:", error.message);
+  }
+};
