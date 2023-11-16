@@ -29,7 +29,7 @@ const initialEvents = [
   // Add more events here
 ];
 
-const BigCalendar = ({ memberInfo }) => {
+const BigCalendar = () => {
   const [events, setEvents] = useState(initialEvents);
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -46,21 +46,14 @@ const BigCalendar = ({ memberInfo }) => {
       const eventsData = await getEventsFromFirestore();
 
       // Convert Firestore timestamps to JavaScript dates
-      const convertedEvents = eventsData.flatMap((event) =>
-        memberInfo.map((member) =>
-          event.email === currentUser.email || event.email === member.email
-            ? {
-                ...event,
-                start: event.start.toDate(),
-                end: event.end.toDate(),
-              }
-            : null
-        )
-      );
+      const convertedEvents = eventsData.map((event) => ({
+        ...event,
+        start: event.start.toDate(),
+        end: event.end.toDate(),
+      }));
 
-      setEvents(convertedEvents.filter((event) => event !== null));
+      setEvents(convertedEvents);
       console.log(convertedEvents);
-      console.log("Member Info: " + memberInfo);
     }
 
     fetchEvents();
