@@ -13,7 +13,7 @@ const MainSection = ({ memberInfo }) => {
       <Header onCalendar={onCalendar} setOnCalendar={setOnCalendar} />
       <GroupList memberInfo={memberInfo} />
       <div className="row" style={{ margin: "auto" }}>
-        <BigCalendar />
+        <BigCalendar memberInfo={memberInfo} />
         {/* <div className="col col-lg-6 nopadding">
               <ScheduleList memberInfo={memberInfo} />
             </div>
