@@ -117,7 +117,9 @@ const BigCalendar = ({ memberInfo }) => {
         className={`custom-event ${
           selectedEvent && selectedEvent.id === event.id ? "selected" : ""
         }`}
-        onClick={() => setSelectedEvent(event)}
+        onClick={() =>
+          event.email === currentUser.email && setSelectedEvent(event)
+        }
       >
         {children}
       </div>
@@ -187,7 +189,7 @@ const BigCalendar = ({ memberInfo }) => {
           components={{
             eventWrapper: CustomEvent,
           }}
-          style={{ height: 450 }}
+          style={{ height: "60vh" }}
         />
       </DndProvider>
     </div>
