@@ -145,7 +145,7 @@ const BigCalendar = ({ memberInfo }) => {
           </button>
         </div>
       ) : (
-        <div className="event-form">
+        <div className="event-form" style={{ margin: "20px 0 10px" }}>
           <input
             type="text"
             placeholder="Event Title"
