@@ -7,6 +7,7 @@ import AuthPage from "./pages/AuthPage/AuthPage";
 import HomePage from "./pages/HomePage/HomePage";
 import CalendarPage from "./pages/CalendarPage/CalendarPage";
 import Settings from "./pages/Settings/Settings";
+import GroupsPage from "./pages/GroupsPage/GroupsPage";
 
 function App() {
   const { currentUser } = useContext(UserContext);
@@ -24,8 +25,8 @@ function App() {
         {/* Other routes */}
         <Route path="/CalendarPage" element={<CalendarPage />} />
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/Settings" element={<Settings />} />
-
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/groups" element={<GroupsPage />} />
       </Routes>
     </Router>
   );

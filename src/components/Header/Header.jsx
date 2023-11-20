@@ -15,7 +15,7 @@ const Header = () => {
             {/* Settings Button */}
             <div className="rotate">
               <i
-                onClick={() => navigate("/Settings")}
+                onClick={() => navigate("/settings")}
                 className="bi bi-gear-wide-connected pointer"
               ></i>
             </div>
@@ -27,10 +27,10 @@ const Header = () => {
           </div>
 
           <div className="col-sm-1">
-            {/* Calendar Button */}
+            {/* Group Button */}
             <i
-              onClick={() => navigate("/CalendarPage")}
-              className="bi bi-calendar pointer"
+              onClick={() => navigate("/groups")}
+              className="bi bi-people-fill pointer"
             ></i>
           </div>
         </div>
