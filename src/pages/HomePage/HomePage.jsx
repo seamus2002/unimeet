@@ -1,10 +1,11 @@
-import useGroupData from "../../hooks/useGroupData";
+import { useContext } from "react";
 import MainSection from "../../sections/MainSection/MainSection";
 import SideSection from "../../sections/SideSection/SideSection";
+import { GroupContext } from "../../contexts/GroupContext";
 
 const HomePage = () => {
   const { currentGroup, members, memberInfo, memberInfoFetched } =
-    useGroupData();
+    useContext(GroupContext);
 
   return (
     <div className="row" style={{ margin: "auto" }}>
