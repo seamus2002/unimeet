@@ -4,11 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import EventContainer from "../EventContainer/EventContainer"; // Import the EventContainer component
 import { UserContext } from "../../contexts/UserContext";
 import { DateContext } from "../../contexts/DateContext";
+import { GroupContext } from "../../contexts/GroupContext";
 
-const ScheduleList = ({ memberInfo }) => {
+const ScheduleList = () => {
   const [events, setEvents] = useState([]);
   const { currentUser } = useContext(UserContext);
   const { currentDate } = useContext(DateContext);
+  const { memberInfo } = useContext(GroupContext);
 
   useEffect(() => {
     // Fetch events from Firestore when the component mounts

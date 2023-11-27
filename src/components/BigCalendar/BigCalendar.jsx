@@ -10,31 +10,33 @@ import {
   getEventsFromFirestore,
 } from "../../utils/firebase/firebase.utils";
 import { UserContext } from "../../contexts/UserContext";
+import { GroupContext } from "../../contexts/GroupContext";
 
 const localizer = momentLocalizer(moment);
 
-const initialEvents = [
-  {
-    id: 1,
-    title: "Meeting with Client",
-    start: new Date(2023, 10, 15, 10, 0),
-    end: new Date(2023, 10, 15, 12, 0),
-  },
-  {
-    id: 2,
-    title: "Team Meeting",
-    start: new Date(2023, 10, 16, 14, 0),
-    end: new Date(2023, 10, 16, 15, 30),
-  },
-  // Add more events here
-];
+// const initialEvents = [
+//   {
+//     id: 1,
+//     title: "Meeting with Client",
+//     start: new Date(2023, 10, 15, 10, 0),
+//     end: new Date(2023, 10, 15, 12, 0),
+//   },
+//   {
+//     id: 2,
+//     title: "Team Meeting",
+//     start: new Date(2023, 10, 16, 14, 0),
+//     end: new Date(2023, 10, 16, 15, 30),
+//   },
+//   // Add more events here
+// ];
 
-const BigCalendar = ({ memberInfo }) => {
-  const [events, setEvents] = useState(initialEvents);
+const BigCalendar = () => {
+  const [events, setEvents] = useState([]);
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const { currentUser } = useContext(UserContext);
+  const { memberInfo } = useContext(GroupContext);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: null,

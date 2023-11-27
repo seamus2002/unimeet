@@ -1,3 +1,11 @@
+input {
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.55);
+  border: none;
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 18px;
+}
+
 /* Sections */
 .bottomLeft-Section {
   display: flex;

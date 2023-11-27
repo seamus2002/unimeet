@@ -4,13 +4,10 @@ import SideSection from "../../sections/SideSection/SideSection";
 import { GroupContext } from "../../contexts/GroupContext";
 
 const HomePage = () => {
-  const { currentGroup, members, memberInfo, memberInfoFetched } =
-    useContext(GroupContext);
-
   return (
     <div className="row" style={{ margin: "auto" }}>
       <div className="col-lg-8 nopadding">
-        <MainSection memberInfo={memberInfo} />
+        <MainSection />
       </div>
       <div className="col-lg-4 nopadding">
         <SideSection />
