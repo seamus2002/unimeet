@@ -9,12 +9,18 @@ const Landing = () => {
         <p className="slogan">Simplify Your Meetups</p>
       </header>
 
+    <div className="hero-container">
       <section className="hero">
         <h2 className="hero-title">Welcome to UNIMEET</h2>
         <p className="hero-description">
           A place where you can effortlessly coordinate meetups with your
           friends, even with your busy schedules.
         </p>
+        <section className="cta-section">
+          <Link to="/auth" className="cta-button secondary">
+            Log in
+          </Link>
+        </section>
       </section>
 
       <img
@@ -23,15 +29,12 @@ const Landing = () => {
         className="landing-image"
       />
 
-      <section className="cta-section">
-        <Link to="/auth" className="cta-button secondary">
-          Log in
-        </Link>
-      </section>
+    </div>
 
       {/* Phrases about UNIMEET */}
       <section className="phrases-section">
         <h2 className="section-title">Why Choose UNIMEET?</h2>
+      <div className="card-container">
         <div className="phrase-container">
           <p className="phrase1">
             Revolutionize the way you plan meetups and connect with friends.
@@ -42,7 +45,7 @@ const Landing = () => {
             className="phrase-image"
           />
         </div>
-        <div className="phrase-container-reverse">
+        <div className="phrase-container">
           <p className="phrase">
             Say goodbye to scheduling conflicts and hello to hassle-free
             meetups.
@@ -64,6 +67,7 @@ const Landing = () => {
             className="phrase-image"
           />
         </div>
+      </div>
       </section>
 
       <footer className="footer">

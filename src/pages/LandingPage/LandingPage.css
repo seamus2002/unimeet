@@ -232,4 +232,43 @@
   /* background: linear-gradient(45deg, #3498db, #21d4fd); */
   background-size: 200% 200%;
   animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 150px;
+  padding-left: 120px;
+  
+}
+.hero-container{
+  display: flex;
+}
+.hero-description{
+  font-size: 22px;
+}
+.cta-section{
+  margin-right: 40px;
+}
+.card-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.phrase-container{
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+.phrase3{
+  margin-right: 20px;
+}
+.phrase-image{
+  height: 300px;
+  width: 380px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer-text{
+  height: 10px;
 }
