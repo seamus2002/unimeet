@@ -8,13 +8,11 @@ const GroupsPage = () => {
   return (
     <div>
       {!currentGroup ? (
-        <>
-          <h1>No Group Found</h1>
-          <AddUserToGroup />
-        </>
+        <h1>No Group Found</h1>
       ) : (
         <h1>You are in Group: {currentGroup}</h1>
       )}
+      <AddUserToGroup />
     </div>
   );
 };

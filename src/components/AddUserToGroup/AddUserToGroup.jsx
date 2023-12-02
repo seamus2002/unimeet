@@ -1,25 +1,34 @@
 import { useState, useContext } from "react";
 import { GroupContext } from "../../contexts/GroupContext";
+import { addUserToGroup } from "../../utils/firebase/firebase.utils";
 
 const AddUserToGroup = () => {
   const { currentGroup, setGroups } = useContext(GroupContext);
   const [email, setEmail] = useState("");
 
-  const addUserToGroup = async () => {
-    // Implement Firebase logic to add user to the group
-    // Update the groups state using setGroups
+  const handleAddUser = async (e) => {
+    e.preventDefault();
+    if (email && currentGroup) {
+      await addUserToGroup(email, currentGroup);
+      setEmail(""); // Clear the input field after adding the user
+    }
   };
 
   return (
     <div>
       <h2>Add User to Group</h2>
-      <input
-        type="email"
-        placeholder="Enter user's email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <button onClick={addUserToGroup}>Add User</button>
+      <form onSubmit={handleAddUser}>
+        <label>
+          User Email:
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Add User</button>
+      </form>
     </div>
   );
 };

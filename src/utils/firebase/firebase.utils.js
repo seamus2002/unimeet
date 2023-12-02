@@ -202,3 +202,52 @@ export const updateUser = async (user) => {
     console.error("Error saving changes:", error.message);
   }
 };
+
+export const addUserToGroup = async (userEmail, groupId) => {
+  try {
+    // Get user's UID based on the email
+    const userQuerySnapshot = await getDocs(
+      collection(db, "users"),
+      where("email", "==", userEmail)
+    );
+
+    if (!userQuerySnapshot.empty) {
+      const userDoc = userQuerySnapshot.docs[0];
+      const userId = userDoc.id;
+
+      // Add the user to the group
+      const groupDocRef = doc(db, "groups", groupId);
+      const groupDocSnap = await getDoc(groupDocRef);
+
+      if (groupDocSnap.exists()) {
+        const currentMembers = groupDocSnap.data().members;
+
+        // Check if the user is not already in the group
+        if (!currentMembers.includes(userId)) {
+          const updatedMembers = [...currentMembers, userId];
+          await updateDoc(groupDocRef, { members: updatedMembers });
+
+          // Update the user's groups array
+          const userDocRef = doc(db, "users", userId);
+          const userDocSnap = await getDoc(userDocRef);
+
+          if (userDocSnap.exists()) {
+            const currentUserGroups = userDocSnap.data().groups || [];
+            if (!currentUserGroups.includes(groupId)) {
+              const updatedGroups = [...currentUserGroups, groupId];
+              await updateDoc(userDocRef, { groups: updatedGroups });
+            }
+          }
+        } else {
+          console.log("User is already in the group");
+        }
+      } else {
+        console.log("Group does not exist");
+      }
+    } else {
+      console.log("User not found");
+    }
+  } catch (error) {
+    console.error("Error adding user to group:", error);
+  }
+};
