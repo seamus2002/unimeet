@@ -268,8 +268,10 @@
   margin-right: 0px;
 }
 
-.footer-text {
-  height: 10px;
+.footer {
+  background-color: #0d6efd;
+  color: white;
+  padding-bottom: 10px;
 }
 .phrase-container .phrase1,
 .phrase,
@@ -284,5 +286,6 @@
 
 .blue-section {
   background-color: #0d6efd;
+  color: white;
   padding: 100px 0;
 }
