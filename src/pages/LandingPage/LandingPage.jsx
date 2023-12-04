@@ -65,7 +65,7 @@ const Landing = () => {
                 </p>
               </div>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 spacing">
               <div className="phrase-container">
                 <img
                   src="https://thumbs.dreamstime.com/b/people-meeting-together-outdoor-friends-gathering-vector-illustration-concept-friend-meetup-celebration-collab-collaboration-197968976.jpg"
