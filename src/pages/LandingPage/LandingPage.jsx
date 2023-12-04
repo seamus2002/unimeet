@@ -7,6 +7,8 @@ const Landing = () => {
   return (
     <div>
       <div className="container col-xxl-8 px-4 py-5">
+      <img src={logo} alt="logo" style={{ width: "50px", position: "fixed", left: "10px", top: "10px" }} />
+
         <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div className="col-10 col-sm-8 col-lg-6">
             <img
@@ -18,7 +20,6 @@ const Landing = () => {
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
               Welcome to UniMeet{" "}
-              <img src={logo} alt="logo" style={{ width: "50px" }} />
             </h1>
             <p className="lead">
               A place where you can effortlessly coordinate meetups with your
