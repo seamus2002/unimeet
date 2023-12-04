@@ -33,14 +33,14 @@ const Landing = () => {
       {/* Phrases about UNIMEET */}
       <section className="phrases-section">
         <h2 className="section-title">Why Choose UNIMEET?</h2>
-        <div className="card-container container">
+        <div className="card-container">
           <div className="phrase-container">
             <img
               src="https://th.bing.com/th/id/OIP.geOxNyQMHIGgZPP0ZMKr8wHaFS?pid=ImgDet&rs=1"
               alt="Revolutionize Image"
               className="phrase-image"
             />
-            <p className="phrase1">
+            <p className="phrase">
               Revolutionize the way you plan meetups and connect with friends.
             </p>
           </div>
@@ -56,13 +56,13 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="phrase-container">
+          <div className="phrase-container phrase-container3">
             <img
               src="https://thumbs.dreamstime.com/b/people-meeting-together-outdoor-friends-gathering-vector-illustration-concept-friend-meetup-celebration-collab-collaboration-197968976.jpg"
               alt="Future of Meetup Coordination Image"
               className="phrase-image"
             />
-            <p className="phrase3">
+            <p className="phrase">
               Experience the future of meetup coordination with UNIMEET.
             </p>
           </div>
