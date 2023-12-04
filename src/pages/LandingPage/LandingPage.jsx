@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 import "./LandingPage.css";
 
 const Landing = () => {
@@ -16,7 +17,8 @@ const Landing = () => {
           </div>
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">
-              Welcome to UniMeet
+              Welcome to UniMeet{" "}
+              <img src={logo} alt="logo" style={{ width: "50px" }} />
             </h1>
             <p className="lead">
               A place where you can effortlessly coordinate meetups with your
