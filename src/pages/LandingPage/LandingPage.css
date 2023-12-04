@@ -258,6 +258,11 @@
   display: flex;
   flex-direction: column;
   height: 500px;
+  border: 4px solid white;
+  padding: 10px 10px 40px 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 12px;
 }
 .phrase3{
   margin-right: 20px;
@@ -271,4 +276,8 @@
 
 .footer-text{
   height: 10px;
+}
+.phrase1, .phrase, .phrase2, .phrase3{
+  font-size: 24px;
+  text-align: left;
 }
