@@ -1,6 +1,3 @@
-/* LandingPage.css */
-
-
 /* Container for the entire landing page */
 .landing-container {
   display: flex;
@@ -35,7 +32,7 @@
   font-size: 1.5em;
   font-weight: bold;
   text-align: center;
-  animation: colorChange 4s ease infinite alternate;
+  color: white;
 }
 
 @keyframes colorChange {
@@ -43,7 +40,7 @@
     color: white; /* Gray */
   }
   100% {
-    color: rgb(19, 95, 216) /* Blue */
+    color: rgb(19, 95, 216); /* Blue */
   }
 }
 
@@ -57,7 +54,8 @@
 }
 
 @keyframes fadeInOut {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
   }
   50% {
@@ -117,7 +115,12 @@
 
 /* Styling for the Phrases section */
 .phrases-section {
-  background: linear-gradient(to bottom, #05bedb, #f5f5f5, #06bedb); /* Gray, Light Gray, Blue */
+  background: linear-gradient(
+    to bottom,
+    #05bedb,
+    #f5f5f5,
+    #06bedb
+  ); /* Gray, Light Gray, Blue */
   padding: 40px 0;
   text-align: center;
   color: #fff; /* White text color */
@@ -129,12 +132,10 @@
 
 /* Container for phrases and images */
 .phrase-container {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin-top: 40px;
-  width: 80%;
+  min-height: 600px;
 }
 
 /* Container for phrases and images in reverse order */
@@ -148,18 +149,21 @@
 }
 
 /* Styling for phrases */
-.phrase, .phrase3, .phrase1 {
-  font-size: 2.0rem;
+.phrase,
+.phrase3,
+.phrase1 {
+  font-size: 2rem;
   margin-left: 20px;
   color: #fff;
-  font-style: italic;
   opacity: 0.7;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 /* Animation for phrases on hover */
-.phrase:hover, .phrase3:hover, .phrase1:hover {
+.phrase:hover,
+.phrase3:hover,
+.phrase1:hover {
   animation: slideLeftRight 1s infinite alternate;
 }
 
@@ -200,8 +204,7 @@
   }
 }
 
- 
-.section-title{
+.section-title {
   font-size: 2.2em;
 }
 
@@ -229,69 +232,57 @@
   align-items: center;
   padding-right: 150px;
   padding-left: 120px;
-  
 }
-.hero-container{
+.hero-container {
   display: flex;
 }
-.hero-description{
+.hero-description {
   font-size: 22px;
 }
-.cta-section{
+.cta-section {
   margin-right: 40px;
 }
-.card-container{
+.card-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 0px;
-  gap: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  flex-shrink: 2;
 }
-.phrase-container{
+.phrase-container {
   display: flex;
   flex-direction: column;
   border: 4px solid white;
-  padding: 60px 80px 80px 60px;
+  padding: 60px 20px 60px 0px;
   margin-right: 10px;
   margin-left: 10px;
   border-radius: 12px;
   background-color: white;
-  flex-shrink: 1;
-  height: 594px;
+}
 
-
-}
-.phrase-container3{
-  height: 594px;
-}
-.container{
-  margin: 0px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 100px;
-}
-.phrase-image{
+.phrase-image {
   height: 300px;
   width: 350px;
   object-fit: cover;
   object-position: center;
   margin-bottom: 0px;
   margin-right: 0px;
-  margin-top: 0px;
 }
 
-.footer-text{
+.footer-text {
   height: 10px;
 }
-.phrase-container .phrase{
+.phrase-container .phrase1,
+.phrase,
+.phrase2,
+.phrase-container .phrase3 {
   font-size: 24px;
   text-align: left;
   color: #3498db;
   margin-top: 20px;
   margin-right: 0px;
+}
+
+.blue-section {
+  background-color: #0d6efd;
+  padding: 100px 0;
 }
