@@ -2,7 +2,11 @@ import "./SideSection.css";
 import logo from "../../assets/logo.png";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import SideCalendar from "../../components/SideCalendar/SideCalendar";
+import { useEvents } from "../../contexts/EventsContext";
+
 const SideSection = () => {
+  const { events } = useEvents();
+
   return (
     <div className="side-section">
       <span className="side-header">

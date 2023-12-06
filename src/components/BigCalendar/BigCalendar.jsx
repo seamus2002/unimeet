@@ -7,10 +7,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import {
   addEventToFirestore,
   deleteEventsFromFirestore,
-  getEventsFromFirestore,
 } from "../../utils/firebase/firebase.utils";
 import { UserContext } from "../../contexts/UserContext";
-import { GroupContext } from "../../contexts/GroupContext";
+import { useEvents } from "../../contexts/EventsContext";
 
 const localizer = momentLocalizer(moment);
 
@@ -31,42 +30,23 @@ const localizer = momentLocalizer(moment);
 // ];
 
 const BigCalendar = () => {
-  const [events, setEvents] = useState([]);
+  const { events: contextEvents } = useEvents(); // Use the useEvents hook to access events from context
+  const [events, setEvents] = useState(contextEvents);
+  // const [events, setEvents] = useState([]);
   const [showEventForm, setShowEventForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const { currentUser } = useContext(UserContext);
-  const { memberInfo } = useContext(GroupContext);
   const [newEvent, setNewEvent] = useState({
     title: "",
     start: null,
     end: null,
   });
+
   useEffect(() => {
-    // Fetch events from Firestore when the component mounts
-    async function fetchEvents() {
-      const eventsData = await getEventsFromFirestore();
-
-      // Convert Firestore timestamps to JavaScript dates
-      const convertedEvents = eventsData.flatMap((event) =>
-        memberInfo.map((member) =>
-          event.email === currentUser.email || event.email === member.email
-            ? {
-                ...event,
-                start: event.start.toDate(),
-                end: event.end.toDate(),
-              }
-            : null
-        )
-      );
-
-      setEvents(convertedEvents.filter((event) => event !== null));
-      console.log(convertedEvents);
-      console.log("Member Info: " + memberInfo);
-    }
-
-    fetchEvents();
-  }, [currentUser, memberInfo]);
+    // Update local state when events change in the context
+    setEvents(contextEvents);
+  }, [contextEvents]);
 
   const handleCreateEventClick = (date) => {
     setSelectedDate(date);

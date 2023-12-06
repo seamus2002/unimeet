@@ -6,6 +6,7 @@ import App from "./App";
 import { UserProvider } from "./contexts/UserContext";
 import { DateProvider } from "./contexts/DateContext";
 import { GroupProvider } from "./contexts/GroupContext";
+import { EventsProvider } from "./contexts/EventsContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,9 @@ root.render(
     <UserProvider>
       <GroupProvider>
         <DateProvider>
-          <App />
+          <EventsProvider>
+            <App />
+          </EventsProvider>
         </DateProvider>
       </GroupProvider>
     </UserProvider>
