@@ -3,6 +3,7 @@ import logo from "../../assets/logo.png";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import SideCalendar from "../../components/SideCalendar/SideCalendar";
 import { useEvents } from "../../contexts/EventsContext";
+import FindOptimalTime from "../../components/OptimalEventTime/FindOptimalTime";
 
 const SideSection = () => {
   const { events } = useEvents();
@@ -24,6 +25,7 @@ const SideSection = () => {
       <button onClick={signOutUser} className="btn btn-primary">
         <i className="bi bi-box-arrow-left" /> Sign Out
       </button>
+      <FindOptimalTime />
       {/* <ul className="nav-list">
         <li className="nav-item">
           <label htmlFor="groups">Group: </label>

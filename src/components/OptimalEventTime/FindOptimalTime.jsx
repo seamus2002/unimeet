@@ -2,10 +2,14 @@ import React, { useContext} from "react";
 import { useEvents } from "../../contexts/EventsContext";
 
 export default function FindOptimalTime() {
-    const events = useContext(useEvents);
+    const { events } = useEvents();
+    
 
+    
 
     return (
-        <div> </div>
+        <div>{events.map(event => <p>{event.start
+            ? new Date(event.start.seconds * 1000).toLocaleTimeString()
+            : "N/A"}</p>)} </div>
     )
 }
