@@ -69,6 +69,7 @@ const BigCalendar = () => {
 
       setEvents([...events, newEventToAdd]);
       setShowEventForm(false);
+      window.location.reload();
     }
   };
 
