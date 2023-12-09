@@ -22,14 +22,7 @@ suggestedTimes = calculateOptimalTime(startTimes, endTimes, date);
   return (
     <div>
         <h5>Optimal Time</h5>
-        {date}
         {suggestedTimes}
-
-        {/* {events.map((event) => (
-        <p>
-          {event.start ? new Date(event.start).toString() : "N/A"}
-        </p>
-      ))}{" "} */}
     </div>
   );
 }
@@ -70,7 +63,7 @@ function calculateOptimalTime(startTimes, endTimes, date) {
       const optimalSlot = availableSlots[0]; // Or use other criteria to select
       return `Optimal Time: ${optimalSlot.start.toLocaleTimeString()} - ${optimalSlot.end.toLocaleTimeString()}`;
     } else {
-      return "No available slot for a 3-hour meeting on this day.";
+      return "No available slot for this day.";
     }
   }
   
