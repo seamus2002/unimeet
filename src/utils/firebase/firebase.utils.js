@@ -18,6 +18,9 @@ import {
   getDocs,
   collection,
   deleteDoc,
+  query,
+  where,
+  updateDoc,
 } from "firebase/firestore";
 
 // UniMeet web app's Firebase configuration
@@ -207,8 +210,7 @@ export const addUserToGroup = async (userEmail, groupId) => {
   try {
     // Get user's UID based on the email
     const userQuerySnapshot = await getDocs(
-      collection(db, "users"),
-      where("email", "==", userEmail)
+      query(collection(db, "users"), where("email", "==", userEmail))
     );
 
     if (!userQuerySnapshot.empty) {
@@ -233,6 +235,8 @@ export const addUserToGroup = async (userEmail, groupId) => {
 
           if (userDocSnap.exists()) {
             const currentUserGroups = userDocSnap.data().groups || [];
+
+            // Check if the user is not already in the group
             if (!currentUserGroups.includes(groupId)) {
               const updatedGroups = [...currentUserGroups, groupId];
               await updateDoc(userDocRef, { groups: updatedGroups });
