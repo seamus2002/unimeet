@@ -55,7 +55,7 @@ const BigCalendar = () => {
     setShowEventForm(!showEventForm);
   };
 
-  const handleCreateEvent = () => {
+  const handleCreateEvent = async () => {
     if (newEvent.title && newEvent.start && newEvent.end) {
       const newId = Math.floor(Math.random() * 1000000); // Generates a random number between 0 and 999999
       const newEventToAdd = {
@@ -65,7 +65,7 @@ const BigCalendar = () => {
       };
 
       // Pass the currentUser.uid to addEventToFirestore
-      addEventToFirestore(newEventToAdd);
+      await addEventToFirestore(newEventToAdd);
 
       setEvents([...events, newEventToAdd]);
       setShowEventForm(false);
